@@ -1,18 +1,64 @@
-<img src="https://github.com/bookingtime/lib-phpsdk-app/blob/master/aws/logo_repo.png" alt="logo" width="150" height="150" />
+# lib-phpsdk-app
+php SDK for bookingtime app-API
 
-**Name:** *lib-phpsdk-app*<br >
-**customer:** *bookingtime*<br />
-**Description:** *rename me later*<br >
-**Type:** *react|symfony*<br >
-**local port:** *0*<br >
+<img src="https://github.com/bookingtime/lib-phpsdk-app/blob/master/aws/logo_php.png" alt="logo php" width="150" height="100" />
 
-**URL (local):** *http://127.0.0.1:0/*<br />
-**URL (dev):** *https://app.bookingtime-dev.com/lib-phpsdk-app/*<br />
-**URL (stage):** *https://app.bookingtime-stage.com/lib-phpsdk-app/*<br />
-**URL (prod):** *https://app.bookingtime.com/lib-phpsdk-app/*<br />
-**URL (sandbox):** *https://app.bookingtime-sandbox.com/lib-phpsdk-app/*<br />
 
-created by otto [bookingtime]<br >
-2023-11-03T23:15:22+01:00
+
+## Requirements
+- PHP >= 7.3
+- A PSR-4 implementation
+
+
+
+## How To Install
+The recommended way to install the SDK is through Composer.
+```bash
+composer require bookingtime/lib-phpsdk-app
+```
+see: https://packagist.org/packages/bookingtime/lib-phpsdk-app
+
+
+
+## Getting Started
+```php
+<?php
+use bookingtime\phpsdkapp\Sdk;
+
+//create SDK
+$sdk=new Sdk(
+   '<CLIENT_ID>',
+   '<CLIENT_SECRET>',
+   ['locale'=>'en','timeout'=>15,'mock'=>FALSE]
+);
+
+//load appointment from API
+$appointment=$sdk->appointment_show([
+   'organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+   'appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+]);
+```
+
+
+## Help and docs
+- Support for developers: https://developer.bookingtime.com
+- See the full API documentation under https://service.bookingtime.com/apidoc/app
+
+
+
+## Security
+If you discover a security vulnerability within this package, please send an email to support@bookingtime.com or create a [ticket](https://developer.bookingtime.com/hc/en-us/requests/new?ticket_form_id=9359661193628). All security vulnerabilities will be promptly addressed.
+
+
+
+## License
+This SDK is distributed under the MIT License, see LICENSE file for more information.
+
+
+
+---
+Copyright 2014 bookingtime GmbH. All Rights Reserved.
 
 Made with :blue_heart: by © bookingtime
+
+<img src="https://github.com/bookingtime/lib-phpsdk-app/blob/master/aws/logo_bookingtime.png" alt="logo" width="30" height="44" />

@@ -1,0 +1,9 @@
+# no git source / docker files
+/.git/
+/.gitignore
+/Dockerfile
+/.dockerignore
+
+# symfony/individual
+/vendor/
+/src/DevelopmentCommand/secret.json
