@@ -485,6 +485,27 @@ class SdkCommand extends Command {
 		// $sdk->employeeGroup_appConfig_unlink(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','employeeGroupId'=>'jsJoeXxMm8Vdez6xmjifrGM1eYwmumTV','appConfigId'=>'c3DfkPErdv7zgyb0nWn2iwJCPgF4kKMD']);
 		// $sdk->employeeGroup_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeGroupId'=>'js96DZ0coJaHPN5OPOs9LExDhwUsAGrH']);
 
+		#EXTERNAL_APPOINTMENT
+		// $data=[
+		// 	'customId'=>'test123',
+		// 	'name'=>'123',
+		// 	'start'=>'2023-12-09T16:00:00+00:00',
+		// 	'end'=>'2023-12-09T16:50:00+00:00',
+		// ];
+		// $externalAppointment=$sdk->externalAppointment_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO'],$data);
+		// $externalAppointment=$sdk->externalAppointment_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','externalAppointmentId'=>'tgyVBWeZURJ4nhLzhGZ9kUAO0UXByqXL']);
+		// $externalAppointment=$sdk->externalAppointment_identify(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customId'=>'123']);
+		// $externalAppointmentArray=$sdk->externalAppointment_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','page'=>'1']);#page optional
+		// $externalAppointmentArray=$sdk->externalAppointment_filter(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','searchQuery'=>'test','page'=>'1']);#page optional
+		// $externalAppointmentArray=$sdk->externalAppointment_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
+		// $externalAppointmentArray=$sdk->externalAppointment_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','day'=>'28']);
+		// $externalAppointmentArray=$sdk->externalAppointment_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','week'=>'39']);
+		// $externalAppointmentArray=$sdk->externalAppointment_listMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9']);
+		// $data=['name'=>'Test Appointment edited'];
+		// $sdk->externalAppointment_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','externalAppointmentId'=>'tgyVBWeZURJ4nhLzhGZ9kUAO0UXByqXL'],$data);
+		// $externalAppointment=$sdk->externalAppointment_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','externalAppointmentId'=>'tgyVBWeZURJ4nhLzhGZ9kUAO0UXByqXL']);
+		#die(BasicLib::debug($externalAppointment));
+
 		#FILE
 		// $fileData=file_get_contents(__DIR__.'/fileTest.txt');
 		// $data=[
