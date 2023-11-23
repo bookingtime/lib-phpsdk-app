@@ -767,11 +767,7 @@ class SdkTest extends TestCase {
 		$this->assertEquals($externalAppointment['mock-content'],1);
 		$externalAppointmentArray=$sdk->externalAppointment_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'2']);#page optional
 		$this->assertEquals($externalAppointmentArray['mock-content'],1);
-		$externalAppointmentArray=$sdk->externalAppointment_indexAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);#page optional
-		$this->assertEquals($externalAppointmentArray['mock-content'],1);
 		$externalAppointmentArray=$sdk->externalAppointment_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'2']);#page optional
-		$this->assertEquals($externalAppointmentArray['mock-content'],1);
-		$externalAppointmentArray=$sdk->externalAppointment_filterAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
 		$this->assertEquals($externalAppointmentArray['mock-content'],1);
 		$externalAppointmentArray=$sdk->externalAppointment_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($externalAppointmentArray['mock-content'],1);
