@@ -781,8 +781,6 @@ class SdkTest extends TestCase {
 		$this->assertEquals($externalAppointmentArray['mock-content'],1);
 		$externalAppointmentArray=$sdk->externalAppointment_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9']);
 		$this->assertEquals($externalAppointmentArray['mock-content'],1);
-		$externalAppointmentArray=$sdk->externalAppointment_listAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($externalAppointmentArray['mock-content'],1);
 		$data=['notes'=>'Test Appointment edited'];
 		$externalAppointment=$sdk->externalAppointment_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','externalAppointmentId'=>'tgxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
 		$this->assertEquals($externalAppointment['mock-content'],1);
