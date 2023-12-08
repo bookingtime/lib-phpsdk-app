@@ -27,6 +27,20 @@ class CustomEntityRoute extends Route {
 		//check submitted parameters
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			$response=$this->httpClient->mockRequest('GET','customEntity/identify',$expectedResponseCode,[
+				'class'=>'CUSTOM_ENTITY_SHORT',
+				'id'=>'6TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+				'customId'=>'444444444',
+				'name'=>'VW Polo',
+				'organizationId'=>'f6XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+			],[
+				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+			]);
+			return $response['content'];
+		}
+
 		//make request to API
 		$this->checkUrlParameters(['organizationId','customEntityType'],$urlParameter);
 		$response=$this->httpClient->request('POST','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/add',$requestContent,$expectedResponseCode);
@@ -47,6 +61,25 @@ class CustomEntityRoute extends Route {
 		//check submitted parameters
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			$response=$this->httpClient->mockRequest('GET','customEntity/identify',$expectedResponseCode,[
+				'class'=>'CUSTOM_ENTITY',
+				'id'=>'6TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+				'customId'=>'111111111',
+				'timestampAdd'=>'23-12-08T11:01:16+01:00',
+				'timestampEdit'=>'',
+				'type'=>'rentalCar',
+				'name'=>'Audi S5',
+				'notes'=>'Beautiful car',
+				'organizationId'=>'f6XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+				'additionalData'=>[],
+			],[
+				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+			]);
+			return $response['content'];
+		}
+
 		//make request to API
 		$this->checkUrlParameters(['organizationId','customEntityType','customEntityId'],$urlParameter);
 		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/'.$urlParameter['customEntityId'].'/show',[],$expectedResponseCode);
@@ -66,6 +99,25 @@ class CustomEntityRoute extends Route {
 	public function identify(array $urlParameter,$expectedResponseCode) {
 		//check submitted parameters
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			$response=$this->httpClient->mockRequest('GET','customEntity/identify',$expectedResponseCode,[
+				'class'=>'CUSTOM_ENTITY',
+				'id'=>'6TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+				'customId'=>'111111111',
+				'timestampAdd'=>'23-12-08T11:01:16+01:00',
+				'timestampEdit'=>'',
+				'type'=>'rentalCar',
+				'name'=>'Audi S5',
+				'notes'=>'Beautiful car',
+				'organizationId'=>'f6XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+				'additionalData'=>[],
+			],[
+				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+			]);
+			return $response['content'];
+		}
 
 		//make request to API
 		$this->checkUrlParameters(['organizationId','customId','customEntityType'],$urlParameter);

@@ -434,11 +434,11 @@ class SdkTest extends TestCase {
 		#CUSTOMENTITY
 		$data=['customId'=>'667','name'=>'CB Testentity'];
 		$customEntity=$sdk->customEntity_add(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar'],$data);
-		$this->assertEquals($customEntity['mock-content'],1);
+		$this->assertEquals($customEntity['class'],'CUSTOM_ENTITY_SHORT');
 		$customEntity=$sdk->customEntity_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($customEntity['mock-content'],1);
+		$this->assertEquals($customEntity['class'],'CUSTOM_ENTITY');
 		$customEntity=$sdk->customEntity_identify(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','customId'=>'666']);
-		$this->assertEquals($customEntity['mock-content'],1);
+		$this->assertEquals($customEntity['class'],'CUSTOM_ENTITY');
 		$customEntityArray=$sdk->customEntity_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','page'=>'2']);#page optional
 		$this->assertEquals($customEntityArray['mock-content'],1);
 		$customEntityArray=$sdk->customEntity_indexAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','page'=>'1']);#page optional
@@ -1026,7 +1026,7 @@ class SdkTest extends TestCase {
 		$organization=$sdk->organization_app_filter(['appId'=>'70xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
 		$this->assertEquals($organization['mock-content'],1);
 		$organization=$sdk->organization_app_list(['appId'=>'70xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($organization['mock-content'],1);
+		$this->assertEquals($organization['class'],'LIST');
 		$organization=$sdk->organization_app_tree(['appId'=>'70xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($organization['mock-content'],1);
 		$organization=$sdk->organization_availability_listDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'1','day'=>'30']);
