@@ -1014,7 +1014,7 @@ class SdkTest extends TestCase {
 		$organization=$sdk->organization_copy(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
 		$this->assertEquals($organization['mock-content'],1);
 		$organization=$sdk->organization_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($organization['mock-content'],1);
+		$this->assertEquals($organization['class'],'ORGANIZATION');
 		$data=['name'=>'CB Test Orga edited',];
 		$organization=$sdk->organization_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
 		$this->assertEquals($organization['mock-content'],1);
