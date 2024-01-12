@@ -195,27 +195,12 @@ class AppointmentRoute extends Route {
 
 		//make mock request with dummi content
 		if($this->httpClient->getMock()) {
-			$fakeId='rO'.BasicLib::getRandomHash(30);
-			$response=$this->httpClient->mockRequest('GET','appointment/bookingResourceReplaceList',$expectedResponseCode,[
-				'class'=>'BOOKING_RESOURCE_REPLACE',
-				'bookingResourceOld'=>[
-					'class'=>'BOOKING_RESOURCE_SHORT',
-					'id'=>'brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-					'customId'=>'MA1',
-					'type'=>'EMPLOYEE',
-					'name'=>'Max Mustermann',
-					'organizationId'=>'Max Mustermann',
-				],
-				'bookingResourceNew'=>[
-					'class'=>'BOOKING_RESOURCE_SHORT',
-					'id'=>'brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-					'customId'=>'MA1',
-					'type'=>'EMPLOYEE',
-					'name'=>'Maxi Musterfrau',
-					'organizationId'=>'Max Mustermann',
-				],
-				'bookingResourceIdList'=>['brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX','brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'],
-				'type'=>'EMPLOYEE',
+			$response=$this->httpClient->mockRequest('GET','appointment/year/2024/month/1/listMonth',$expectedResponseCode,[
+				'class'=>'RANGE_LIST',
+				'rangeStart'=>'2024-01-01T00:00:00+01:00',
+				'rangeEnd'=>'2024-01-31T23:59:59+01:00',
+				'timeZone'=>'Europe/Berlin',
+				'list'=>[],
 			],[
 				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
 			]);
@@ -245,12 +230,27 @@ class AppointmentRoute extends Route {
 
 		//make mock request with dummi content
 		if($this->httpClient->getMock()) {
-			$response=$this->httpClient->mockRequest('GET','appointment/year/2024/month/1/listMonth',$expectedResponseCode,[
-				'class'=>'RANGE_LIST',
-				'rangeStart'=>'2024-01-01T00:00:00+01:00',
-				'rangeEnd'=>'2024-01-31T23:59:59+01:00',
-				'timeZone'=>'Europe/Berlin',
-				'list'=>[],
+			$fakeId='rO'.BasicLib::getRandomHash(30);
+			$response=$this->httpClient->mockRequest('GET','appointment/bookingResourceReplaceList',$expectedResponseCode,[
+				'class'=>'BOOKING_RESOURCE_REPLACE',
+				'bookingResourceOld'=>[
+					'class'=>'BOOKING_RESOURCE_SHORT',
+					'id'=>'brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+					'customId'=>'MA1',
+					'type'=>'EMPLOYEE',
+					'name'=>'Max Mustermann',
+					'organizationId'=>'Max Mustermann',
+				],
+				'bookingResourceNew'=>[
+					'class'=>'BOOKING_RESOURCE_SHORT',
+					'id'=>'brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+					'customId'=>'MA1',
+					'type'=>'EMPLOYEE',
+					'name'=>'Maxi Musterfrau',
+					'organizationId'=>'Max Mustermann',
+				],
+				'bookingResourceIdList'=>['brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX','brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'],
+				'type'=>'EMPLOYEE',
 			],[
 				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
 			]);
