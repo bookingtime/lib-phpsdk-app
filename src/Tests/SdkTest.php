@@ -694,9 +694,9 @@ class SdkTest extends TestCase {
 		$employeeArray=$sdk->employee_filterAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
 		$this->assertEquals($employeeArray['mock-content'],1);
 		$employeeArray=$sdk->employee_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($employeeArray['mock-content'],1);
+		$this->assertEquals($employeeArray['class'],'LIST');
 		$employeeArray=$sdk->employee_listAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($employeeArray['mock-content'],1);
+		$this->assertEquals($employeeArray['class'],'LIST');
 		$employee=$sdk->employee_permission(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','employeeId'=>'Ehxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($emailTemplate['mock-content'],1);
 		$data=['notes'=>'test edit'];
