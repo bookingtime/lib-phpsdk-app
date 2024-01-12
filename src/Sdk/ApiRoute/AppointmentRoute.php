@@ -193,6 +193,20 @@ class AppointmentRoute extends Route {
 		//check submitted parameters
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			$response=$this->httpClient->mockRequest('GET','appointment/year/2024/month/1/listMonth',$expectedResponseCode,[
+				'class'=>'RANGE_LIST',
+				'rangeStart'=>'2024-01-01T00:00:00+01:00',
+				'rangeEnd'=>'2024-01-31T23:59:59+01:00',
+				'timeZone'=>'Europe/Berlin',
+				'list'=>[],
+			],[
+				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+			]);
+			return $response['content'];
+		}
+
 		//make request to API
 		$this->checkUrlParameters(['organizationId','year','month'],$urlParameter);
 		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/listMonth',[],$expectedResponseCode);

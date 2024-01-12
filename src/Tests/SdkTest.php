@@ -109,7 +109,7 @@ class SdkTest extends TestCase {
 		$appointmentArray=$sdk->appointment_listWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','week'=>'39']);
 		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9']);
-		$this->assertEquals($appointmentArray['mock-content'],1);
+		$this->assertEquals($appointmentArray['class'],'RANGE_LIST');
 		$appointmentArray=$sdk->appointment_listAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_bookingResourceReplaceList(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
@@ -1136,7 +1136,7 @@ class SdkTest extends TestCase {
 		$organization=$sdk->organization_subOrganization_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
 		$this->assertEquals($organization['mock-content'],1);
 		$organization=$sdk->organization_subOrganization_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($organization['mock-content'],1);
+		$this->assertEquals($organization['class'],'LIST');
 		$organization=$sdk->organization_subOrganization_tree(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($organization['mock-content'],1);
 		$organization=$sdk->organization_timeGrid_listWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','week'=>'41']);
