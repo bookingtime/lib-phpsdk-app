@@ -67,20 +67,20 @@ class OrganizationRoute extends Route {
 		//check submitted parameters
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
-#TODO CB
-//make mock request with dummi content
-if($this->httpClient->getMock()) {
-	$response=$this->httpClient->mockRequest('GET','organization/organization/list',$expectedResponseCode,[
-		'class'=>'ORGANIZATION',
-		'id'=>'f6XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-		'customId'=>'ABC123-12345678',
-		'name'=>'Max Mustermann',
-		'organizationList'=>[],
-	],[
-		['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
-	]);
-	return $response['content'];
-}
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			$response=$this->httpClient->mockRequest('GET','organization/organization/list',$expectedResponseCode,[
+				'class'=>'ORGANIZATION',
+				'id'=>'f6XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+				'customId'=>'ABC123-12345678',
+				'name'=>'Max Mustermann',
+				'timestampAdd'=>'2024-01-03T17:43:52+01:00',
+				'organizationList'=>[],
+			],[
+				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+			]);
+			return $response['content'];
+		}
 
 		//make request to API
 		$this->checkUrlParameters(['organizationId'],$urlParameter);

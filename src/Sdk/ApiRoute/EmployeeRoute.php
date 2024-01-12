@@ -133,6 +133,19 @@ class EmployeeRoute extends Route {
 		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			$response=$this->httpClient->mockRequest('GET','organization/employee/list',$expectedResponseCode,[
+				'class'=>'LIST',
+				'recordTotal'=>0,
+				'recordTotal'=>9999,
+				'recordList'=>[],
+			],[
+				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+			]);
+			return $response['content'];
+		}
+
 		//make request to API
 		$this->checkUrlParameters(['organizationId'],$urlParameter);
 		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/employee/'.($all?'listAll':'list'),[],$expectedResponseCode);
