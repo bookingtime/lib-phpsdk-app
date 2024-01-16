@@ -448,9 +448,9 @@ class SdkTest extends TestCase {
 		$customEntityArray=$sdk->customEntity_filterAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','searchQuery'=>'test','page'=>'1']);#page optional
 		$this->assertEquals($customEntityArray['mock-content'],1);
 		$customEntityArray=$sdk->customEntity_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar']);
-		$this->assertEquals($customEntityArray['mock-content'],1);
+		$this->assertEquals($customEntityArray['class'],'LIST');
 		$customEntityArray=$sdk->customEntity_listAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar']);
-		$this->assertEquals($customEntityArray['mock-content'],1);
+		$this->assertEquals($customEntityArray['class'],'LIST');
 		$data=['notes'=>'Test customEntity edited'];
 		$customEntity=$sdk->customEntity_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar'],$data);
 		$this->assertEquals($customEntity['mock-content'],1);
