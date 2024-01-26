@@ -97,6 +97,42 @@ class StaticRoute extends Route {
 
 
 	/**
+	 * get list of logCategories
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function markerList(array $urlParameter,$expectedResponseCode) {
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			$response=$this->httpClient->mockRequest('GET','static/marker/list',$expectedResponseCode,[
+				'class'=>'LIST',
+				'recordTotal'=>1,
+				'recordLimit'=>9999,
+				'recordList'=>[[
+					'class'=>'MARKER',
+					'name'=>'CUSTOMER_ID',
+					'entity'=>'customer',
+					'description'=>'ID of customer',
+					'example'=>'123',
+				]],
+			],[
+				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+			]);
+			return $response['content'];
+		}
+
+		//make request to API
+		$response=$this->httpClient->request('GET','/static/marker/list',[],$expectedResponseCode);
+
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
 	 * get list of permissions
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
