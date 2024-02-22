@@ -225,6 +225,12 @@ class Sdk {
 			} case('module'): {
 				$apiRoute=new ApiRoute\ModuleRoute($this->httpClient);
 				break(1);
+			} case('onlineMeetingConnection'): {
+				$apiRoute=new ApiRoute\OnlineMeetingConnectionRoute($this->httpClient);
+				break(1);
+			} case('onlineMeetingConnectionLog'): {
+				$apiRoute=new ApiRoute\OnlineMeetingConnectionLogRoute($this->httpClient);
+				break(1);
 			} case('organization'): {
 				$apiRoute=new ApiRoute\OrganizationRoute($this->httpClient);
 				break(1);
@@ -1032,6 +1038,43 @@ class Sdk {
 				return $apiRoute->filter($args[0],200);
 			} case('module_list'): {
 				return $apiRoute->list($args[0],200);
+			}
+		}
+
+		//onlineMeetingConnection
+		switch($name) {
+			case('onlineMeetingConnection_add'): {
+				return $apiRoute->add($args[0],$args[1],201);
+			} case('onlineMeetingConnection_show'): {
+				return $apiRoute->show($args[0],200);
+			} case('onlineMeetingConnection_identify'): {
+				return $apiRoute->identify($args[0],200);
+			} case('onlineMeetingConnection_index'): {
+				return $apiRoute->index($args[0],FALSE,200);
+			} case('onlineMeetingConnection_filter'): {
+				return $apiRoute->filter($args[0],FALSE,200);
+			} case('onlineMeetingConnection_list'): {
+				return $apiRoute->list($args[0],FALSE,200);
+			} case('onlineMeetingConnection_indexAll'): {
+				return $apiRoute->index($args[0],TRUE,200);
+			} case('onlineMeetingConnection_filterAll'): {
+				return $apiRoute->filter($args[0],TRUE,200);
+			} case('onlineMeetingConnection_listAll'): {
+				return $apiRoute->list($args[0],TRUE,200);
+			} case('onlineMeetingConnection_edit'): {
+				return $apiRoute->edit($args[0],$args[1],200);
+			} case('onlineMeetingConnection_delete'): {
+				return $apiRoute->delete($args[0],200);
+			}
+		}
+
+
+		//onlineMeetingConnectionLog
+		switch($name) {
+			 case('onlineMeetingConnectionLog_show'): {
+				return $apiRoute->show($args[0],200);
+			} case('onlineMeetingConnectionLog_index'): {
+				return $apiRoute->index($args[0],200);
 			}
 		}
 

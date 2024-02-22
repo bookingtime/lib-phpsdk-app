@@ -937,6 +937,43 @@ class SdkTest extends TestCase {
 		$moduleArray=$sdk->module_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($moduleArray['mock-content'],1);
 
+		#ONLINEMEETINGCONNECTION
+		$data=[
+			'type'=>'TEAMS',
+			'email'=>'c.scheerer@bookingtime.com',
+			'bookingResourceId'=>'brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+			'customId'=>'111',
+		];
+		$onlineMeetingConnection=$sdk->onlineMeetingConnection_add(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($onlineMeetingConnection['mock-content'],1);
+		$onlineMeetingConnection=$sdk->onlineMeetingConnection_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','onlineMeetingConnectionId'=>'bKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($onlineMeetingConnection['mock-content'],1);
+		$onlineMeetingConnection=$sdk->onlineMeetingConnection_identify(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customId'=>'666']);
+		$this->assertEquals($onlineMeetingConnection['mock-content'],1);
+		$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'2']);#page optional
+		$this->assertEquals($onlineMeetingConnectionArray['mock-content'],1);
+		$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_indexAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);#page optional
+		$this->assertEquals($onlineMeetingConnectionArray['mock-content'],1);
+		$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'2']);#page optional
+		$this->assertEquals($onlineMeetingConnectionArray['mock-content'],1);
+		$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_filterAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
+		$this->assertEquals($onlineMeetingConnectionArray['mock-content'],1);
+		$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($onlineMeetingConnectionArray['mock-content'],1);
+		$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_listAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($onlineMeetingConnectionArray['mock-content'],1);
+		$data=['name'=>'Test Module edited2'];
+		$onlineMeetingConnection=$sdk->onlineMeetingConnection_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','onlineMeetingConnectionId'=>'bKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($onlineMeetingConnection['mock-content'],1);
+		$onlineMeetingConnection=$sdk->onlineMeetingConnection_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','onlineMeetingConnectionId'=>'bKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($onlineMeetingConnection['mock-content'],1);
+
+		#ONLINEMEETINGCONNECTIONLOG
+		$onlineMeetingConnectionLog=$sdk->onlineMeetingConnectionLog_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','onlineMeetingConnectionId'=>'bKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','onlineMeetingConnectionLogId'=>'v6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($onlineMeetingConnectionLog['mock-content'],1);
+		$onlineMeetingConnectionLogArray=$sdk->onlineMeetingConnectionLog_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','onlineMeetingConnectionId'=>'bKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'2']);#page optional
+		$this->assertEquals($onlineMeetingConnectionLogArray['mock-content'],1);
+
 		#ORGANIZATION
 		$data=[
 			'customId'=>'sdkTest',
