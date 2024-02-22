@@ -618,6 +618,31 @@ class SdkCommand extends Command {
 		// $moduleArray=$sdk->module_filter(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','searchQuery'=>'test','page'=>'1']);#page optional
 		// $moduleArray=$sdk->module_list(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs',]);
 
+		#ONLINEMEETINGCONNECTION
+		#$data=[
+		#	'type'=>'TEAMS',
+		#	'email'=>'c.scheerer@bookingtime.com',
+		#	'bookingResourceId'=>'broOMpalIzPaMjHdDC5qh6p2uhHnZmyR',
+		#	'customId'=>'777',
+		#];
+		#$onlineMeetingConnection=$sdk->onlineMeetingConnection_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO'],$data);
+		#$onlineMeetingConnection=$sdk->onlineMeetingConnection_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','onlineMeetingConnectionId'=>'bKyZyFkGSfP17brc8PloH4bxTMz3cxdq']);
+		#$onlineMeetingConnection=$sdk->onlineMeetingConnection_identify(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customId'=>'777']);
+		#$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','page'=>'1']);#page optional
+		#$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_indexAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','page'=>'1']);#page optional
+		#$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_filter(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','searchQuery'=>'test','page'=>'1']);#page optional
+		#$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_filterAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','searchQuery'=>'test','page'=>'1']);#page optional
+		#$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
+		#$onlineMeetingConnectionArray=$sdk->onlineMeetingConnection_listAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
+		#$data=['email'=>'c.scheerer3@bookingtime.com'];
+		#$onlineMeetingConnection=$sdk->onlineMeetingConnection_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','onlineMeetingConnectionId'=>'bKyZyFkGSfP17brc8PloH4bxTMz3cxdq'],$data);
+		#$sdk->onlineMeetingConnection_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','onlineMeetingConnectionId'=>'bKyZyFkGSfP17brc8PloH4bxTMz3cxdq']);
+
+		#ONLINEMEETINGCONNECTIONLOG
+		#$onlineMeetingConnectionLog=$sdk->onlineMeetingConnectionLog_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','onlineMeetingConnectionId'=>'bKyZyFkGSfP17brc8PloH4bxTMz3cxdq','onlineMeetingConnectionLogId'=>'v6mK11ChX4iw9l47nihdumFW7uIZcUH3']);
+		#$onlineMeetingConnectionLogArray=$sdk->onlineMeetingConnectionLog_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','onlineMeetingConnectionId'=>'bKyZyFkGSfP17brc8PloH4bxTMz3cxdq','page'=>'1']);#page optional
+		#die(BasicLib::debug($onlineMeetingConnectionLogArray));
+
 		#ORGANIZATION
 		// $data=[
 		// 	'customId'=>'sdkTest',
