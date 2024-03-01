@@ -1181,7 +1181,7 @@ class SdkTest extends TestCase {
 		$data=['rangeStart'=>'2021-11-11T12:00:00+02:00','rangeEnd'=>'2021-11-19T19:00:00+02:00','timeGrid'=>['2021-11-11T12:00:00+02:00','2021-11-11T12:30:00+02:00']];
 		$organization=$sdk->organization_timeGrid_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
 		$this->assertEquals($organization['mock-content'],1);
-		$organization=$sdk->organization_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','organizationId'=>'Ehxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$organization=$sdk->organization_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($organization['mock-content'],1);
 
 		#PACKET
