@@ -795,7 +795,7 @@ class SdkTest extends TestCase {
 		$file=$sdk->file_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','fileId'=>'w1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($file['mock-content'],1);
 		$file=$sdk->file_download(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','fileId'=>'w1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($file['mock-content'],1);
+		$this->assertEquals($file['content']['mock-content'],1);
 		$file=$sdk->file_identify(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customId'=>'123']);
 		$this->assertEquals($file['mock-content'],1);
 		$fileArray=$sdk->file_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'2']);#page optional
