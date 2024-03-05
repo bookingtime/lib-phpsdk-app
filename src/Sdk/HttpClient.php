@@ -90,7 +90,7 @@ class HttpClient {
 	 * @param	boolean	$expectedJsonReponse: if TRUEm throw exeption if no JSON responsem otherwise return response-content directly
 	 * @return	mixed		buzz response with message and content or string for file download
 	 */
-	public function request($method,$requestUrlSuffix,array $requestContent,$expectedResponseCode,$expectedJsonReponse=TRUE):mixed {
+	public function request($method,$requestUrlSuffix,array $requestContent,$expectedResponseCode,$expectedJsonReponse=TRUE) {
 		//check submitted parameters
 		BasicLib::checkType('string',$method,__METHOD__.'(): method');
 		BasicLib::checkType('string',$requestUrlSuffix,__METHOD__.'(): requestUrlSuffix');
