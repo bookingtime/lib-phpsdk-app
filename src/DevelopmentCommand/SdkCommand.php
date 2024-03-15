@@ -101,11 +101,9 @@ class SdkCommand extends Command {
 		// $appointmentArray=$sdk->appointment_listAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
 		//$appointmentArray=$sdk->appointment_bookingResourceReplaceList(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
 		// $data=['notes'=>'Test Appointment edited'];
-		$data=['bookingSlotId'=>'4f6gl70xpd6oeqis236e1f80ac7acd54'];
-		$appointment=$sdk->appointment_move(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX'],$data);
-		$this->assertEquals($appointment['mock-content'],1);
-
-die(BasicLib::debug($appointment));
+		// $data=['bookingSlotId'=>'4f6gl70xpd6oeqis236e1f80ac7acd54'];
+		// $appointment=$sdk->appointment_move(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX'],$data);
+		// $this->assertEquals($appointment['mock-content'],1);
 		// $sdk->appointment_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX'],$data);
 		// $sdk->appointment_cancel(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
 		// $appointmentArray=$sdk->appointment_customer_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC','page'=>'1']);
