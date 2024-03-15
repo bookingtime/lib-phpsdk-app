@@ -336,6 +336,8 @@ class Sdk {
 				return $apiRoute->bookingResourceReplaceList($args[0],200);
 			} case('appointment_edit'): {
 				return $apiRoute->edit($args[0],$args[1],200);
+			} case('appointment_move'): {
+				return $apiRoute->move($args[0],$args[1],200);
 			} case('appointment_cancel'): {
 				return $apiRoute->cancel($args[0],200);
 			} case('appointment_customEntity_index'): {
