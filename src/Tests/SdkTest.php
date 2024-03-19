@@ -1361,6 +1361,8 @@ class SdkTest extends TestCase {
 		$this->assertEquals($sectorList['mock-content'],1);
 		$timeZoneList=$sdk->static_timeZone_list([]);
 		$this->assertEquals($timeZoneList['mock-content'],1);
+		$organizationTemplateDataList=$sdk->static_organizationTemplateData_list([]);
+		$this->assertEquals($organizationTemplateDataList['mock-content'],1);
 
 		#SYNCHRONIZATION
 		$data=[

@@ -1294,6 +1294,8 @@ class Sdk {
 				return $apiRoute->sectorList($args[0],200);
 			} case('static_timeZone_list'): {
 				return $apiRoute->timeZoneList($args[0],200);
+			} case('static_organizationTemplateData_list'): {
+				return $apiRoute->organizationTemplateDataList($args[0],200);
 			}
 		}
 
