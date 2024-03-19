@@ -929,13 +929,14 @@ class SdkCommand extends Command {
 		// $permissionList=$sdk->static_permission_list([]);
 		// $sectorList=$sdk->static_sector_list([]);
 		// $timeZoneList=$sdk->static_timeZone_list([]);
+			#$organizationTemplateDataList=$sdk->static_organizationTemplateData_list([]);
 		// $error=$sdk->static_error_show(['errorCode'=>400]);
 		// $error=$sdk->static_error_show(['errorCode'=>401]);
 		// $error=$sdk->static_error_show(['errorCode'=>403]);
 		// $error=$sdk->static_error_show(['errorCode'=>404]);
 		// $error=$sdk->static_error_show(['errorCode'=>405]);
 		// $error=$sdk->static_error_show(['errorCode'=>500]);
-		#die(BasicLib::debug($error));
+		#die(BasicLib::debug($organizationTemplateDataList));
 
 		#SYNCHRONIZATION
 		// $data=[
