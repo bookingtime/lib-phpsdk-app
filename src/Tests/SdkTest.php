@@ -94,24 +94,12 @@ class SdkTest extends TestCase {
 		$this->assertEquals($appointment['mock-content'],1);
 		$appointment=$sdk->appointment_identify(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customId'=>'123']);
 		$this->assertEquals($appointment['mock-content'],1);
-		$appointmentArray=$sdk->appointment_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'2']);#page optional
-		$this->assertEquals($appointmentArray['mock-content'],1);
-		$appointmentArray=$sdk->appointment_indexAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);#page optional
-		$this->assertEquals($appointmentArray['mock-content'],1);
-		$appointmentArray=$sdk->appointment_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'2']);#page optional
-		$this->assertEquals($appointmentArray['mock-content'],1);
-		$appointmentArray=$sdk->appointment_filterAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
-		$this->assertEquals($appointmentArray['mock-content'],1);
-		$appointmentArray=$sdk->appointment_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_listDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','day'=>'28']);
 		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_listWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','week'=>'39']);
 		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9']);
 		$this->assertEquals($appointmentArray['class'],'RANGE_LIST');
-		$appointmentArray=$sdk->appointment_listAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_bookingResourceReplaceList(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($appointmentArray['class'],'BOOKING_RESOURCE_REPLACE');
 		$data=['notes'=>'Test Appointment edited'];
