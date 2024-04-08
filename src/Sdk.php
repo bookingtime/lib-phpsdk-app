@@ -314,24 +314,12 @@ class Sdk {
 				return $apiRoute->show($args[0],200);
 			} case('appointment_identify'): {
 				return $apiRoute->identify($args[0],200);
-			} case('appointment_index'): {
-				return $apiRoute->index($args[0],FALSE,200);
-			} case('appointment_filter'): {
-				return $apiRoute->filter($args[0],FALSE,200);
-			} case('appointment_list'): {
-				return $apiRoute->list($args[0],FALSE,200);
 			} case('appointment_listDay'): {
 				return $apiRoute->listDay($args[0],200);
 			} case('appointment_listWeek'): {
 				return $apiRoute->listWeek($args[0],200);
 			} case('appointment_listMonth'): {
 				return $apiRoute->listMonth($args[0],200);
-			} case('appointment_indexAll'): {
-				return $apiRoute->index($args[0],TRUE,200);
-			} case('appointment_filterAll'): {
-				return $apiRoute->filter($args[0],TRUE,200);
-			} case('appointment_listAll'): {
-				return $apiRoute->list($args[0],TRUE,200);
 			} case('appointment_bookingResourceReplaceList'): {
 				return $apiRoute->bookingResourceReplaceList($args[0],200);
 			} case('appointment_edit'): {
