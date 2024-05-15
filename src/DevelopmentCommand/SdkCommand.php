@@ -193,6 +193,21 @@ class SdkCommand extends Command {
 		// $sdk->appointmentTemplateStep_bookingResource_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P','appointmentTemplateStepId'=>'b8liy4o7AItwRPoct0akZBHG6UPX52j8','bookingResourceId'=>'browuBQJWSylERkRQIHHrlXHVpCeyfqN']);
 		// $sdk->appointmentTemplateStep_bookingResource_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P','appointmentTemplateStepId'=>'b8liy4o7AItwRPoct0akZBHG6UPX52j8','bookingResourceId'=>'browuBQJWSylERkRQIHHrlXHVpCeyfqN']);
 
+		#APPOINTMENTTEMPLATE_EVENT_DATE_TIME
+		// $data=[
+		// 	'customId'=>'sdk1',
+		// 	'start'=>'2024-10-29T12:00:00+01:00',
+		// 	'bookingResourceIdList'=>['brDqyrfum3JUiBUni0o70wyeoMiIpRLG'],
+		// 	'appointmentEventAttendanceCountMax'=>10,
+		// ];
+		// $appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'6tAlWWMmOS7u75bKhvdZiaAGMLlYZdVb'],$data);
+		// $data=['customId'=>'sdk1edited'];
+		// $appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'6tAlWWMmOS7u75bKhvdZiaAGMLlYZdVb','appointmentTemplateEventDateTimeId'=>'psCBIC5nrBNvBNk7uapuqbUuUkuNCmdo'],$data);
+		// $appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_bookingResource_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'6tAlWWMmOS7u75bKhvdZiaAGMLlYZdVb','appointmentTemplateEventDateTimeId'=>'psCBIC5nrBNvBNk7uapuqbUuUkuNCmdo','bookingResourceId'=>'browuBQJWSylERkRQIHHrlXHVpCeyfqN']);
+		// $appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_bookingResource_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'6tAlWWMmOS7u75bKhvdZiaAGMLlYZdVb','appointmentTemplateEventDateTimeId'=>'psCBIC5nrBNvBNk7uapuqbUuUkuNCmdo','bookingResourceId'=>'browuBQJWSylERkRQIHHrlXHVpCeyfqN']);
+		// $appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'6tAlWWMmOS7u75bKhvdZiaAGMLlYZdVb','appointmentTemplateEventDateTimeId'=>'psCBIC5nrBNvBNk7uapuqbUuUkuNCmdo']);
+		#die(BasicLib::debug($appointmentTemplateEventDateTime));
+
 		#AVAILABILITYEXCEPTION
 		// $data=[
 		// 	'name'=>'Ausnahme Test',

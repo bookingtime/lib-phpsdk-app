@@ -162,6 +162,9 @@ class Sdk {
 			} case('appointmentTemplate'): {
 				$apiRoute=new ApiRoute\AppointmentTemplateRoute($this->httpClient);
 				break(1);
+			} case('appointmentTemplateEventDateTime'): {
+				$apiRoute=new ApiRoute\AppointmentTemplateEventDateTimeRoute($this->httpClient);
+				break(1);
 			} case('appointmentTemplateStep'): {
 				$apiRoute=new ApiRoute\AppointmentTemplateStepRoute($this->httpClient);
 				break(1);
@@ -391,6 +394,21 @@ class Sdk {
 				return $apiRoute->timeGridListWeek($args[0],200);
 			} case('appointmentTemplate_timeGrid_edit'): {
 				return $apiRoute->timeGridEdit($args[0],$args[1],200);
+			}
+		}
+
+		//appointmentTemplateEventDateTime
+		switch($name) {
+			case('appointmentTemplateEventDateTime_add'): {
+				return $apiRoute->add($args[0],$args[1],201);
+			} case('appointmentTemplateEventDateTime_edit'): {
+				return $apiRoute->edit($args[0],$args[1],200);
+			} case('appointmentTemplateEventDateTime_delete'): {
+				return $apiRoute->delete($args[0],200);
+			} case('appointmentTemplateEventDateTime_bookingResource_link'): {
+				return $apiRoute->bookingResourceLink($args[0],FALSE,200);
+			} case('appointmentTemplateEventDateTime_bookingResource_unlink'): {
+				return $apiRoute->bookingResourceLink($args[0],TRUE,200);
 			}
 		}
 

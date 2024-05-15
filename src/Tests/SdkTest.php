@@ -247,6 +247,25 @@ class SdkTest extends TestCase {
 		$appointmentTemplateComplex=$sdk->appointmentTemplate_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($appointmentTemplateComplex['mock-content'],1);
 
+		#APPOINTMENTTEMPLATE_EVENT_DATE_TIME
+		$data=[
+			'customId'=>'sdk1test',
+			'start'=>'2024-10-29T12:00:00+01:00',
+			'bookingResourceIdList'=>['brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],
+			'appointmentEventAttendanceCountMax'=>10,
+		];
+		$appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_add(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'6txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($appointmentTemplateEventDateTime['mock-content'],1);
+		$data=['customId'=>'sdk1testedited'];
+		$appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'6txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateEventDateTimeId'=>'psxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($appointmentTemplateEventDateTime['mock-content'],1);
+		$appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'6txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateEventDateTimeId'=>'psxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateEventDateTime['mock-content'],1);
+		$appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_bookingResource_link(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'6txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateEventDateTimeId'=>'psxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','bookingResourceId'=>'brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateEventDateTime['mock-content'],1);
+		$appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_bookingResource_unlink(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'6txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateEventDateTimeId'=>'psxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','bookingResourceId'=>'brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateEventDateTime['mock-content'],1);
+
 		#APPOINTMENTTEMPLATESTEP
 		$data=[
 			'name'=>'Buchungsschritt',
