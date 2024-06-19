@@ -837,7 +837,7 @@ class SdkCommand extends Command {
 		// $data=[
 		// 	'name'=>'Resource Test',
 		// 	'nameI18nList'=>[['key'=>'en','value'=>'This is a resource']],
-		// 	'type'=>'LOCATION',
+		// 	'category'=>'LOCATION',
 		// 	'description'=>'Das ist die Resource Test',
 		// 	'descriptionI18nList'=>[['key'=>'en','value'=>'This is a resource']],
 		// ];

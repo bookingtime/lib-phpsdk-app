@@ -171,7 +171,7 @@ class AppointmentRoute extends Route {
 					'class'=>'BOOKING_RESOURCE_SHORT',
 					'id'=>'brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 					'customId'=>'MA1',
-					'type'=>'EMPLOYEE',
+					'category'=>'EMPLOYEE',
 					'name'=>'Max Mustermann',
 					'organizationId'=>'Max Mustermann',
 				],
@@ -179,12 +179,12 @@ class AppointmentRoute extends Route {
 					'class'=>'BOOKING_RESOURCE_SHORT',
 					'id'=>'brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 					'customId'=>'MA1',
-					'type'=>'EMPLOYEE',
+					'category'=>'EMPLOYEE',
 					'name'=>'Maxi Musterfrau',
 					'organizationId'=>'Max Mustermann',
 				],
 				'bookingResourceIdList'=>['brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX','brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'],
-				'type'=>'EMPLOYEE',
+				'category'=>'EMPLOYEE',
 			],[
 				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
 			]);
