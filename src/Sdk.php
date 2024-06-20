@@ -332,14 +332,22 @@ class Sdk {
 				return $apiRoute->customEntityIndex($args[0],200);
 			} case('appointment_customEntity_filter'): {
 				return $apiRoute->customEntityFilter($args[0],200);
-			} case('appointment_customEntity_list'): {
-				return $apiRoute->customEntityList($args[0],200);
+			} case('appointment_customEntity_listDay'): {
+				return $apiRoute->customEntityListDay($args[0],200);
+			} case('appointment_customEntity_listWeek'): {
+				return $apiRoute->customEntityListWeek($args[0],200);
+			} case('appointment_customEntity_listMonth'): {
+				return $apiRoute->customEntityListMonth($args[0],200);
 			} case('appointment_customer_index'): {
 				return $apiRoute->customerIndex($args[0],200);
 			} case('appointment_customer_filter'): {
 				return $apiRoute->customerFilter($args[0],200);
-			} case('appointment_customer_list'): {
-				return $apiRoute->customerList($args[0],200);
+			} case('appointment_customer_listDay'): {
+				return $apiRoute->customerListDay($args[0],200);
+			} case('appointment_customer_listWeek'): {
+				return $apiRoute->customerListWeek($args[0],200);
+			} case('appointment_customer_listMonth'): {
+				return $apiRoute->customerListMonth($args[0],200);
 			} case('appointment_customer_link'): {
 				return $apiRoute->customerLink($args[0],FALSE,200);
 			} case('appointment_customer_unlink'): {

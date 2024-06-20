@@ -303,19 +303,59 @@ class AppointmentRoute extends Route {
 
 
 	/**
-	 * customEntity list
+	 * list day
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
 	 * @param	integer	$expectedResponseCode: expected http response code for http-client
 	 * @return	array		reponse content
 	 */
-	public function customEntityList(array $urlParameter,$expectedResponseCode) {
+	public function customEntityListDay(array $urlParameter,$expectedResponseCode) {
 		//check submitted parameters
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
-		$this->checkUrlParameters(['organizationId','customEntityId','customEntityType'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/'.$urlParameter['customEntityId'].'/appointment/list',[],$expectedResponseCode);
+		$this->checkUrlParameters(['organizationId','customEntityId','customEntityType','year','month','day'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/'.$urlParameter['customEntityId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/day/'.$urlParameter['day'].'/listDay',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * list week
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function customEntityListWeek(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','customEntityId','customEntityType','year','week'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/'.$urlParameter['customEntityId'].'/appointment/year/'.$urlParameter['year'].'/week/'.$urlParameter['week'].'/listWeek',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * list month
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function customEntityListMonth(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','customEntityId','customEntityType','year','month'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/'.$urlParameter['customEntityId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/listMonth',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
@@ -363,19 +403,59 @@ class AppointmentRoute extends Route {
 
 
 	/**
-	 * customer list
+	 * list day
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
 	 * @param	integer	$expectedResponseCode: expected http response code for http-client
 	 * @return	array		reponse content
 	 */
-	public function customerList(array $urlParameter,$expectedResponseCode) {
+	public function customerListDay(array $urlParameter,$expectedResponseCode) {
 		//check submitted parameters
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
-		$this->checkUrlParameters(['organizationId','customerId'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/appointment/list',[],$expectedResponseCode);
+		$this->checkUrlParameters(['organizationId','customerId','year','month','day'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/day/'.$urlParameter['day'].'/listDay',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * list week
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function customerListWeek(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','customerId','year','week'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/appointment/year/'.$urlParameter['year'].'/week/'.$urlParameter['week'].'/listWeek',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * list month
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function customerListMonth(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','customerId','year','month'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/listMonth',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
