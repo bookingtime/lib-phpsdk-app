@@ -162,6 +162,9 @@ class Sdk {
 			} case('appointmentTemplate'): {
 				$apiRoute=new ApiRoute\AppointmentTemplateRoute($this->httpClient);
 				break(1);
+			} case('appointmentTemplateEventDateTime'): {
+				$apiRoute=new ApiRoute\AppointmentTemplateEventDateTimeRoute($this->httpClient);
+				break(1);
 			} case('appointmentTemplateStep'): {
 				$apiRoute=new ApiRoute\AppointmentTemplateStepRoute($this->httpClient);
 				break(1);
@@ -200,9 +203,6 @@ class Sdk {
 				break(1);
 			} case('employeeGroup'): {
 				$apiRoute=new ApiRoute\EmployeeGroupRoute($this->httpClient);
-				break(1);
-			} case('externalAppointment'): {
-				$apiRoute=new ApiRoute\ExternalAppointmentRoute($this->httpClient);
 				break(1);
 			} case('file'): {
 				$apiRoute=new ApiRoute\FileRoute($this->httpClient);
@@ -254,9 +254,6 @@ class Sdk {
 				break(1);
 			} case('synchronization'): {
 				$apiRoute=new ApiRoute\SynchronizationRoute($this->httpClient);
-				break(1);
-			} case('synchronizationAppointment'): {
-				$apiRoute=new ApiRoute\SynchronizationAppointmentRoute($this->httpClient);
 				break(1);
 			} case('synchronizationLog'): {
 				$apiRoute=new ApiRoute\SynchronizationLogRoute($this->httpClient);
@@ -405,6 +402,21 @@ class Sdk {
 				return $apiRoute->timeGridListWeek($args[0],200);
 			} case('appointmentTemplate_timeGrid_edit'): {
 				return $apiRoute->timeGridEdit($args[0],$args[1],200);
+			}
+		}
+
+		//appointmentTemplateEventDateTime
+		switch($name) {
+			case('appointmentTemplateEventDateTime_add'): {
+				return $apiRoute->add($args[0],$args[1],201);
+			} case('appointmentTemplateEventDateTime_edit'): {
+				return $apiRoute->edit($args[0],$args[1],200);
+			} case('appointmentTemplateEventDateTime_delete'): {
+				return $apiRoute->delete($args[0],200);
+			} case('appointmentTemplateEventDateTime_bookingResource_link'): {
+				return $apiRoute->bookingResourceLink($args[0],FALSE,200);
+			} case('appointmentTemplateEventDateTime_bookingResource_unlink'): {
+				return $apiRoute->bookingResourceLink($args[0],TRUE,200);
 			}
 		}
 
@@ -869,33 +881,6 @@ class Sdk {
 			}
 		}
 
-		//externalAppointment
-		switch($name) {
-			case('externalAppointment_add'): {
-				return $apiRoute->add($args[0],$args[1],201);
-			} case('externalAppointment_show'): {
-				return $apiRoute->show($args[0],200);
-			} case('externalAppointment_identify'): {
-				return $apiRoute->identify($args[0],200);
-			} case('externalAppointment_index'): {
-				return $apiRoute->index($args[0],200);
-			} case('externalAppointment_filter'): {
-				return $apiRoute->filter($args[0],200);
-			} case('externalAppointment_list'): {
-				return $apiRoute->list($args[0],200);
-			} case('externalAppointment_listDay'): {
-				return $apiRoute->listDay($args[0],200);
-			} case('externalAppointment_listWeek'): {
-				return $apiRoute->listWeek($args[0],200);
-			} case('externalAppointment_listMonth'): {
-				return $apiRoute->listMonth($args[0],200);
-			} case('externalAppointment_edit'): {
-				return $apiRoute->edit($args[0],$args[1],200);
-			} case('externalAppointment_delete'): {
-				return $apiRoute->delete($args[0],200);
-			}
-		}
-
 		//file
 		switch($name) {
 			case('file_add'): {
@@ -1321,25 +1306,6 @@ class Sdk {
 				return $apiRoute->delete($args[0],200);
 			} case('synchronization_reset'): {
 				return $apiRoute->reset($args[0],200);
-			}
-		}
-
-		//synchronizationAppointment
-		switch($name) {
-			case('synchronizationAppointment_show'): {
-				return $apiRoute->show($args[0],200);
-			} case('synchronizationAppointment_index'): {
-				return $apiRoute->index($args[0],200);
-			} case('synchronizationAppointment_filter'): {
-				return $apiRoute->filter($args[0],200);
-			} case('synchronizationAppointment_list'): {
-				return $apiRoute->list($args[0],200);
-			} case('synchronizationAppointment_listDay'): {
-				return $apiRoute->listDay($args[0],200);
-			} case('synchronizationAppointment_listWeek'): {
-				return $apiRoute->listWeek($args[0],200);
-			} case('synchronizationAppointment_listMonth'): {
-				return $apiRoute->listMonth($args[0],200);
 			}
 		}
 

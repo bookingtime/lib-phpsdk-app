@@ -255,6 +255,25 @@ $this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentTemplateComplex=$sdk->appointmentTemplate_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($appointmentTemplateComplex['mock-content'],1);
 
+		#APPOINTMENTTEMPLATE_EVENT_DATE_TIME
+		$data=[
+			'customId'=>'sdk1test',
+			'start'=>'2024-10-29T12:00:00+01:00',
+			'bookingResourceIdList'=>['brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],
+			'appointmentEventAttendanceCountMax'=>10,
+		];
+		$appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_add(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'6txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($appointmentTemplateEventDateTime['mock-content'],1);
+		$data=['customId'=>'sdk1testedited'];
+		$appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'6txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateEventDateTimeId'=>'psxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($appointmentTemplateEventDateTime['mock-content'],1);
+		$appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'6txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateEventDateTimeId'=>'psxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateEventDateTime['mock-content'],1);
+		$appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_bookingResource_link(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'6txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateEventDateTimeId'=>'psxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','bookingResourceId'=>'brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateEventDateTime['mock-content'],1);
+		$appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_bookingResource_unlink(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'6txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateEventDateTimeId'=>'psxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','bookingResourceId'=>'brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateEventDateTime['mock-content'],1);
+
 		#APPOINTMENTTEMPLATESTEP
 		$data=[
 			'name'=>'Buchungsschritt',
@@ -750,37 +769,6 @@ $this->assertEquals($appointmentArray['mock-content'],1);
 		$this->assertEquals($employeeGroup['mock-content'],1);
 		$employeeGroup=$sdk->employeeGroup_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','employeeGroupId'=>'jsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($employeeGroup['mock-content'],1);
-
-		#EXTERNALAPPOINTMENT
-		$data=[
-			'customId'=>'123',
-			'name'=>'123',
-			'start'=>'31.12.2019 09:00',
-			'end'=>'31.12.2019 19:00',
-		];
-		$externalAppointment=$sdk->externalAppointment_add(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
-		$this->assertEquals($externalAppointment['mock-content'],1);
-		$externalAppointment=$sdk->externalAppointment_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','externalAppointmentId'=>'tgxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($externalAppointment['mock-content'],1);
-		$externalAppointment=$sdk->externalAppointment_identify(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customId'=>'123']);
-		$this->assertEquals($externalAppointment['mock-content'],1);
-		$externalAppointmentArray=$sdk->externalAppointment_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'2']);#page optional
-		$this->assertEquals($externalAppointmentArray['mock-content'],1);
-		$externalAppointmentArray=$sdk->externalAppointment_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'2']);#page optional
-		$this->assertEquals($externalAppointmentArray['mock-content'],1);
-		$externalAppointmentArray=$sdk->externalAppointment_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($externalAppointmentArray['mock-content'],1);
-		$externalAppointmentArray=$sdk->externalAppointment_listDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','day'=>'28']);
-		$this->assertEquals($externalAppointmentArray['mock-content'],1);
-		$externalAppointmentArray=$sdk->externalAppointment_listWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','week'=>'39']);
-		$this->assertEquals($externalAppointmentArray['mock-content'],1);
-		$externalAppointmentArray=$sdk->externalAppointment_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9']);
-		$this->assertEquals($externalAppointmentArray['mock-content'],1);
-		$data=['notes'=>'Test Appointment edited'];
-		$externalAppointment=$sdk->externalAppointment_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','externalAppointmentId'=>'tgxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
-		$this->assertEquals($externalAppointment['mock-content'],1);
-		$externalAppointment=$sdk->externalAppointment_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','externalAppointmentId'=>'tgxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($externalAppointment['mock-content'],1);
 
 		#FILE
 		$data=[
@@ -1402,21 +1390,6 @@ $this->assertEquals($appointmentArray['mock-content'],1);
 		$this->assertEquals($synchronization['mock-content'],1);
 		$synchronization=$sdk->synchronization_reset(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','synchronizationId'=>'A7xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($synchronization['mock-content'],1);
-
-		#SYNCHRONIZATION_APPOINTMENT
-		$synchronizationAppointment=$sdk->synchronizationAppointment_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','synchronizationAppointmentId'=>'A7xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($synchronizationAppointment['mock-content'],1);
-		$synchronizationAppointmentArray=$sdk->synchronizationAppointment_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);#page optional
-		$this->assertEquals($synchronizationAppointmentArray['mock-content'],1);
-		$synchronizationAppointmentArray=$sdk->synchronizationAppointment_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
-		$this->assertEquals($synchronizationAppointmentArray['mock-content'],1);
-		$synchronizationAppointmentArray=$sdk->synchronizationAppointment_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($synchronizationAppointmentArray['mock-content'],1);
-		$synchronizationAppointmentArray=$sdk->synchronizationAppointment_listDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','day'=>'28']);
-		$this->assertEquals($synchronizationAppointmentArray['mock-content'],1);
-		$synchronizationAppointmentArray=$sdk->synchronizationAppointment_listWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','week'=>'39']);
-		$this->assertEquals($synchronizationAppointmentArray['mock-content'],1);
-		$synchronizationAppointmentArray=$sdk->synchronizationAppointment_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9']);
 
 		#SYNCHRONIZATION_LOG
 		$synchronizationLog=$sdk->synchronizationLog_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','synchronizationId'=>'A7xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','synchronizationLogId'=>'7qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);

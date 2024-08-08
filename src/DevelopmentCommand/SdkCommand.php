@@ -198,6 +198,21 @@ class SdkCommand extends Command {
 		// $sdk->appointmentTemplateStep_bookingResource_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P','appointmentTemplateStepId'=>'b8liy4o7AItwRPoct0akZBHG6UPX52j8','bookingResourceId'=>'browuBQJWSylERkRQIHHrlXHVpCeyfqN']);
 		// $sdk->appointmentTemplateStep_bookingResource_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P','appointmentTemplateStepId'=>'b8liy4o7AItwRPoct0akZBHG6UPX52j8','bookingResourceId'=>'browuBQJWSylERkRQIHHrlXHVpCeyfqN']);
 
+		#APPOINTMENTTEMPLATE_EVENT_DATE_TIME
+		// $data=[
+		// 	'customId'=>'sdk1',
+		// 	'start'=>'2024-10-29T12:00:00+01:00',
+		// 	'bookingResourceIdList'=>['brDqyrfum3JUiBUni0o70wyeoMiIpRLG'],
+		// 	'appointmentEventAttendanceCountMax'=>10,
+		// ];
+		// $appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'6tAlWWMmOS7u75bKhvdZiaAGMLlYZdVb'],$data);
+		// $data=['customId'=>'sdk1edited'];
+		// $appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'6tAlWWMmOS7u75bKhvdZiaAGMLlYZdVb','appointmentTemplateEventDateTimeId'=>'psCBIC5nrBNvBNk7uapuqbUuUkuNCmdo'],$data);
+		// $appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_bookingResource_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'6tAlWWMmOS7u75bKhvdZiaAGMLlYZdVb','appointmentTemplateEventDateTimeId'=>'psCBIC5nrBNvBNk7uapuqbUuUkuNCmdo','bookingResourceId'=>'browuBQJWSylERkRQIHHrlXHVpCeyfqN']);
+		// $appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_bookingResource_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'6tAlWWMmOS7u75bKhvdZiaAGMLlYZdVb','appointmentTemplateEventDateTimeId'=>'psCBIC5nrBNvBNk7uapuqbUuUkuNCmdo','bookingResourceId'=>'browuBQJWSylERkRQIHHrlXHVpCeyfqN']);
+		// $appointmentTemplateEventDateTime=$sdk->appointmentTemplateEventDateTime_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'6tAlWWMmOS7u75bKhvdZiaAGMLlYZdVb','appointmentTemplateEventDateTimeId'=>'psCBIC5nrBNvBNk7uapuqbUuUkuNCmdo']);
+		#die(BasicLib::debug($appointmentTemplateEventDateTime));
+
 		#AVAILABILITYEXCEPTION
 		// $data=[
 		// 	'name'=>'Ausnahme Test',
@@ -486,27 +501,6 @@ class SdkCommand extends Command {
 		// $sdk->employeeGroup_appConfig_link(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','employeeGroupId'=>'jsJoeXxMm8Vdez6xmjifrGM1eYwmumTV','appConfigId'=>'c3DfkPErdv7zgyb0nWn2iwJCPgF4kKMD']);
 		// $sdk->employeeGroup_appConfig_unlink(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','employeeGroupId'=>'jsJoeXxMm8Vdez6xmjifrGM1eYwmumTV','appConfigId'=>'c3DfkPErdv7zgyb0nWn2iwJCPgF4kKMD']);
 		// $sdk->employeeGroup_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeGroupId'=>'js96DZ0coJaHPN5OPOs9LExDhwUsAGrH']);
-
-		#EXTERNAL_APPOINTMENT
-		// $data=[
-		// 	'customId'=>'test123',
-		// 	'name'=>'123',
-		// 	'start'=>'2023-12-09T16:00:00+00:00',
-		// 	'end'=>'2023-12-09T16:50:00+00:00',
-		// ];
-		// $externalAppointment=$sdk->externalAppointment_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO'],$data);
-		// $externalAppointment=$sdk->externalAppointment_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','externalAppointmentId'=>'tgyVBWeZURJ4nhLzhGZ9kUAO0UXByqXL']);
-		// $externalAppointment=$sdk->externalAppointment_identify(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customId'=>'123']);
-		// $externalAppointmentArray=$sdk->externalAppointment_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','page'=>'1']);#page optional
-		// $externalAppointmentArray=$sdk->externalAppointment_filter(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','searchQuery'=>'test','page'=>'1']);#page optional
-		// $externalAppointmentArray=$sdk->externalAppointment_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
-		// $externalAppointmentArray=$sdk->externalAppointment_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','day'=>'28']);
-		// $externalAppointmentArray=$sdk->externalAppointment_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','week'=>'39']);
-		// $externalAppointmentArray=$sdk->externalAppointment_listMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9']);
-		// $data=['name'=>'Test Appointment edited'];
-		// $sdk->externalAppointment_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','externalAppointmentId'=>'tgyVBWeZURJ4nhLzhGZ9kUAO0UXByqXL'],$data);
-		// $externalAppointment=$sdk->externalAppointment_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','externalAppointmentId'=>'tgyVBWeZURJ4nhLzhGZ9kUAO0UXByqXL']);
-		#die(BasicLib::debug($externalAppointment));
 
 		#FILE
 		// $fileData=file_get_contents(__DIR__.'/fileTest.txt');
@@ -968,15 +962,6 @@ class SdkCommand extends Command {
 		#$synchronization=$sdk->synchronization_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','synchronizationId'=>'A7CQ0ZOgj6gKnouvjVLRCr3GWizkiD5B']);
 		#$synchronization=$sdk->synchronization_reset(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','synchronizationId'=>'A7CQ0ZOgj6gKnouvjVLRCr3GWizkiD5B']);
 		#die(BasicLib::debug($synchronization));
-
-		#SYNCHRONIZATION_APPOINTMENT
-		#$synchronizationAppointment=$sdk->synchronizationAppointment_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','synchronizationAppointmentId'=>'7qydl51FdZjQD5dwXdPrl74FIopumLMV']);
-		#$synchronizationAppointment=$sdk->synchronizationAppointment_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','page'=>'1']);#page optional
-		#$synchronizationAppointment=$sdk->synchronizationAppointment_filter(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','searchQuery'=>'test','page'=>'1']);#page optional
-		#$synchronizationAppointmentArray=$sdk->synchronizationAppointment_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
-		#$synchronizationAppointmentArray=$sdk->synchronizationAppointment_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2023','month'=>'9','day'=>'28']);
-		#$synchronizationAppointmentArray=$sdk->synchronizationAppointment_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','week'=>'39']);
-		#$synchronizationAppointmentArray=$sdk->synchronizationAppointment_listMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9']);
 
 		#SYNCHRONIZATION_LOG
 		#$synchronizationLog=$sdk->synchronizationLog_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','synchronizationId'=>'A7CQ0ZOgj6gKnouvjVLRCr3GWizkiD5B','synchronizationLogId'=>'7qydl51FdZjQD5dwXdPrl74FIopumLMV']);
