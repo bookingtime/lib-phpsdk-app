@@ -317,6 +317,18 @@ class Sdk {
 				return $apiRoute->listWeek($args[0],200);
 			} case('appointment_listMonth'): {
 				return $apiRoute->listMonth($args[0],200);
+			} case('appointment_indexDay'): {
+				return $apiRoute->indexDay($args[0],FALSE,200);
+			} case('appointment_indexWeek'): {
+				return $apiRoute->indexWeek($args[0],FALSE,200);
+			} case('appointment_indexMonth'): {
+				return $apiRoute->indexMonth($args[0],FALSE,200);
+			} case('appointment_indexAllDay'): {
+				return $apiRoute->indexDay($args[0],TRUE,200);
+			} case('appointment_indexAllWeek'): {
+				return $apiRoute->indexWeek($args[0],TRUE,200);
+			} case('appointment_indexAllMonth'): {
+				return $apiRoute->indexMonth($args[0],TRUE,200);
 			} case('appointment_bookingResourceReplaceList'): {
 				return $apiRoute->bookingResourceReplaceList($args[0],200);
 			} case('appointment_edit'): {

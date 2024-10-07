@@ -93,6 +93,14 @@ class SdkCommand extends Command {
 		// $appointmentArray=$sdk->appointment_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','day'=>'28']);
 		// $appointmentArray=$sdk->appointment_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','week'=>'39']);
 		// $appointmentArray=$sdk->appointment_listMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9']);
+		// $appointmentArray=$sdk->appointment_indexDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','day'=>'28','page'=>'1']);
+		// $appointmentArray=$sdk->appointment_indexWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','week'=>'39','page'=>'1']);
+		// $appointmentArray=$sdk->appointment_indexMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','page'=>'1']);
+		// $appointmentArray=$sdk->appointment_indexAllDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','day'=>'28','page'=>'1']);#
+		// $appointmentArray=$sdk->appointment_indexAllWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','week'=>'39','page'=>'1']);
+		// $appointmentArray=$sdk->appointment_indexAllMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','page'=>'1']);
+		#die(BasicLib::debug($appointmentArray));
+
 		//$appointmentArray=$sdk->appointment_bookingResourceReplaceList(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
 		// $data=['notes'=>'Test Appointment edited'];
 		// $data=['bookingSlotId'=>'4f6gl70xpd6oeqis236e1f80ac7acd54'];
