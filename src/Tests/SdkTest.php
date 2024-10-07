@@ -100,6 +100,18 @@ class SdkTest extends TestCase {
 		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9']);
 		$this->assertEquals($appointmentArray['class'],'RANGE_LIST');
+		$appointmentArray=$sdk->appointment_indexDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','day'=>'28','page'=>'1']);
+		$this->assertEquals($appointmentArray['class'],'PAGINATION_LIST');
+		$appointmentArray=$sdk->appointment_indexWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','week'=>'39','page'=>'1']);
+		$this->assertEquals($appointmentArray['class'],'PAGINATION_LIST');
+		$appointmentArray=$sdk->appointment_indexMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','page'=>'1']);
+		$this->assertEquals($appointmentArray['class'],'PAGINATION_LIST');
+		$appointmentArray=$sdk->appointment_indexAllDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','day'=>'28','page'=>'1']);
+		$this->assertEquals($appointmentArray['class'],'PAGINATION_LIST');
+		$appointmentArray=$sdk->appointment_indexAllWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','week'=>'39','page'=>'1']);
+		$this->assertEquals($appointmentArray['class'],'PAGINATION_LIST');
+		$appointmentArray=$sdk->appointment_indexAllMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','page'=>'1']);
+		$this->assertEquals($appointmentArray['class'],'PAGINATION_LIST');
 		$appointmentArray=$sdk->appointment_bookingResourceReplaceList(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($appointmentArray['class'],'BOOKING_RESOURCE_REPLACE');
 		$data=['notes'=>'Test Appointment edited'];
