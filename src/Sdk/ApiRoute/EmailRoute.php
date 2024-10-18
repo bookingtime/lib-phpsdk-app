@@ -178,4 +178,25 @@ class EmailRoute extends Route {
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
+
+
+
+	/**
+	 * send individual email to customer
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	array		$requestContent: send this content to api
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function customerAdd(array $urlParameter,array $requestContent,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','customerId'],$urlParameter);
+		$response=$this->httpClient->request('POST','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/email/add',$requestContent,$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
 }

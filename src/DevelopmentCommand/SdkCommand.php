@@ -431,6 +431,12 @@ class SdkCommand extends Command {
 		// $emailArray=$sdk->email_customer_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC','page'=>'1']);#page optional
 		// $emailArray=$sdk->email_customer_filter(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC','searchQuery'=>'test','page'=>'1']);#page optional
 		// $emailArray=$sdk->email_customer_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC']);
+		// $data=[
+		// 	'subject'=>'Testmail Command',
+		// 	'bodyPlain'=>'Testmail content plain',
+		// 	'bodyHtml'=>'<p>Testmail content html</p>',
+		// ];
+		// $emailCustomer=$sdk->email_customer_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC'],$data);
 
 		#EMAILTEMPLATE
 		// $data=[
@@ -900,6 +906,12 @@ class SdkCommand extends Command {
 		// $smsArray=$sdk->sms_customer_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC','page'=>'1']);#page optional
 		// $smsArray=$sdk->sms_customer_filter(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC','searchQuery'=>'test','page'=>'1']);#page optional
 		// $smsArray=$sdk->sms_customer_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC']);
+		// $data=[
+		// 	'text'=>'Test SMS Command',
+		// ];
+		// $smsCustomer=$sdk->sms_customer_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC'],$data);
+		#die(BasicLib::debug($smsCustomer));
+
 
 		#SMSTEMPLATE
 		// $data=[
