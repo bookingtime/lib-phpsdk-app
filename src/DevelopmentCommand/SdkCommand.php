@@ -906,12 +906,11 @@ class SdkCommand extends Command {
 		// $smsArray=$sdk->sms_customer_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC','page'=>'1']);#page optional
 		// $smsArray=$sdk->sms_customer_filter(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC','searchQuery'=>'test','page'=>'1']);#page optional
 		// $smsArray=$sdk->sms_customer_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC']);
-		$data=[
-			'text'=>'Test SMS Command',
-		];
-		$smsCustomer=$sdk->sms_customer_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC'],$data);
-
-die(BasicLib::debug($smsCustomer));
+		// $data=[
+		// 	'text'=>'Test SMS Command',
+		// ];
+		// $smsCustomer=$sdk->sms_customer_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC'],$data);
+		#die(BasicLib::debug($smsCustomer));
 
 
 		#SMSTEMPLATE
