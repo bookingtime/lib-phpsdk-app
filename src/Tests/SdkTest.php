@@ -126,18 +126,18 @@ class SdkTest extends TestCase {
 		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_customEntity_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','searchQuery'=>'test','page'=>'2']);
 		$this->assertEquals($appointmentArray['mock-content'],1);
-$appointment=$sdk->appointment_customEntity_listDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','month'=>'5','day'=>'28']);
-$this->assertEquals($appointmentArray['mock-content'],1);
-$appointment=$sdk->appointment_customEntity_listWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','week'=>'39']);
-$this->assertEquals($appointmentArray['mock-content'],1);
-$appointment=$sdk->appointment_customEntity_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','month'=>'5']);
-$this->assertEquals($appointmentArray['mock-content'],1);
-$appointment=$sdk->appointment_customer_listDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','month'=>'5','day'=>'28']);
-$this->assertEquals($appointmentArray['mock-content'],1);
-$appointment=$sdk->appointment_customer_listWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','week'=>'39']);
-$this->assertEquals($appointmentArray['mock-content'],1);
-$appointment=$sdk->appointment_customer_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','month'=>'5']);
-$this->assertEquals($appointmentArray['mock-content'],1);
+		$appointment=$sdk->appointment_customEntity_listDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','month'=>'5','day'=>'28']);
+		$this->assertEquals($appointmentArray['mock-content'],1);
+		$appointment=$sdk->appointment_customEntity_listWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','week'=>'39']);
+		$this->assertEquals($appointmentArray['mock-content'],1);
+		$appointment=$sdk->appointment_customEntity_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','month'=>'5']);
+		$this->assertEquals($appointmentArray['mock-content'],1);
+		$appointment=$sdk->appointment_customer_listDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','month'=>'5','day'=>'28']);
+		$this->assertEquals($appointmentArray['mock-content'],1);
+		$appointment=$sdk->appointment_customer_listWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','week'=>'39']);
+		$this->assertEquals($appointmentArray['mock-content'],1);
+		$appointment=$sdk->appointment_customer_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2024','month'=>'5']);
+		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_customer_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);
 		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_customer_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'2']);
@@ -661,6 +661,14 @@ $this->assertEquals($appointmentArray['mock-content'],1);
 		$this->assertEquals($emailArray['mock-content'],1);
 		$emailArray=$sdk->email_customer_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($emailArray['mock-content'],1);
+
+		$data=[
+			'subject'=>'Testmail',
+			'bodyPlain'=>'Testmail content plain',
+			'bodyHtml'=>'<p>Testmail content html</p>',
+		];
+		$emailCustomer=$sdk->email_customer_add(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($emailCustomer['mock-content'],1);
 
 		#EMAILTEMPLATE
 		$data=[
@@ -1297,6 +1305,12 @@ $this->assertEquals($appointmentArray['mock-content'],1);
 		$this->assertEquals($smsArray['mock-content'],1);
 		$smsArray=$sdk->sms_customer_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($smsArray['mock-content'],1);
+		$data=[
+			'text'=>'Test SMS',
+		];
+		$smsCustomer=$sdk->sms_customer_add(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($smsCustomer['mock-content'],1);
+
 
 		#SMSTEMPLATE
 		$data=[

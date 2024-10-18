@@ -781,6 +781,8 @@ class Sdk {
 				return $apiRoute->customerFilter($args[0],200);
 			} case('email_customer_list'): {
 				return $apiRoute->customerList($args[0],200);
+			} case('email_customer_add'): {
+				return $apiRoute->customerAdd($args[0],$args[1],201);
 			}
 		}
 
@@ -1239,6 +1241,8 @@ class Sdk {
 				return $apiRoute->customerFilter($args[0],200);
 			} case('sms_customer_list'): {
 				return $apiRoute->customerList($args[0],200);
+			} case('sms_customer_add'): {
+				return $apiRoute->customerAdd($args[0],$args[1],201);
 			}
 		}
 
