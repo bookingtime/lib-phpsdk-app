@@ -77,72 +77,6 @@ class AppointmentRoute extends Route {
 
 
 	/**
-	 * index
-	 *
-	 * @param	array		$urlParameter: list of url paramerts like ids
-	 * @param	boolean	$all: true - shows all in a short version | false - shows just a few in a detailed version
-	 * @param	integer	$expectedResponseCode: expected http response code for http-client
-	 * @return	array		reponse content
-	 */
-	public function index(array $urlParameter,$all,$expectedResponseCode) {
-		//check submitted parameters
-		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
-		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
-
-		//make request to API
-		$this->checkUrlParameters(['organizationId','page'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/appointment/'.($all?'indexAll':'index').'/'.($urlParameter['page']?$urlParameter['page']:'1'),[],$expectedResponseCode);
-		#die(BasicLib::debug($response));
-		return $response['content'];
-	}
-
-
-
-	/**
-	 * filter entities
-	 *
-	 * @param	array		$urlParameter: list of url paramerts like ids
-	 * @param	boolean	$all: true - shows all in a short version | false - shows just a few in a detailed version
-	 * @param	integer	$expectedResponseCode: expected http response code for http-client
-	 * @return	array		reponse content
-	 */
-	public function filter(array $urlParameter,$all,$expectedResponseCode) {
-		//check submitted parameters
-		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
-		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
-
-		//make request to API
-		$this->checkUrlParameters(['organizationId','searchQuery','page'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/appointment/'.($all?'filterAll':'filter').'/'.($urlParameter['page']?$urlParameter['page']:'1').'?searchQuery='.$urlParameter['searchQuery'],[],$expectedResponseCode);
-		#die(BasicLib::debug($response));
-		return $response['content'];
-	}
-
-
-
-	/**
-	 * list entities
-	 *
-	 * @param	array		$urlParameter: list of url paramerts like ids
-	 * @param	boolean	$all: true - shows all in a short version | false - shows just a few in a detailed version
-	 * @param	integer	$expectedResponseCode: expected http response code for http-client
-	 * @return	array		reponse content
-	 */
-	public function list(array $urlParameter,$all,$expectedResponseCode) {
-		//check submitted parameters
-		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
-		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
-
-		//make request to API
-		$this->checkUrlParameters(['organizationId'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/appointment/'.($all?'listAll':'list'),[],$expectedResponseCode);
-		#die(BasicLib::debug($response));
-		return $response['content'];
-	}
-
-
-
-	/**
 	 * list day
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
@@ -217,6 +151,125 @@ class AppointmentRoute extends Route {
 
 
 	/**
+	 * index day
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	boolean	$all: true - shows all | false - shows just a few
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function indexDay(array $urlParameter,$all,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			$response=$this->httpClient->mockRequest('GET','appointment/year/2025/month/10/day/1/indexDay/1',$expectedResponseCode,[
+				'class'=>'PAGINATION_LIST',
+				'pageCurrent'=>1,
+				'pageTotal'=>1,
+				'recordFrom'=>1,
+				'recordTo'=>0,
+				'recordTotal'=>0,
+				'recordPerPage'=>25,
+				'recordList'=>[]
+			],[
+				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+			]);
+			return $response['content'];
+		}
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','year','month','day','page'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/day/'.$urlParameter['day'].'/'.($all?'indexAllDay':'indexDay').'/'.($urlParameter['page']?$urlParameter['page']:'1'),[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * index week
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	boolean	$all: true - shows all | false - shows just a few
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function indexWeek(array $urlParameter,$all,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			$response=$this->httpClient->mockRequest('GET','appointment/year/2025/week/10/indexWeek/1',$expectedResponseCode,[
+				'class'=>'PAGINATION_LIST',
+				'pageCurrent'=>1,
+				'pageTotal'=>1,
+				'recordFrom'=>1,
+				'recordTo'=>0,
+				'recordTotal'=>0,
+				'recordPerPage'=>25,
+				'recordList'=>[]
+
+			],[
+				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+			]);
+			return $response['content'];
+		}
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','year','week','page'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/appointment/year/'.$urlParameter['year'].'/week/'.$urlParameter['week'].'/'.($all?'indexAllWeek':'indexWeek').'/'.($urlParameter['page']?$urlParameter['page']:'1'),[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * index month
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	boolean	$all: true - shows all | false - shows just a few
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function indexMonth(array $urlParameter,$all,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			$response=$this->httpClient->mockRequest('GET','appointment/year/2025/month/10/indexMonth/1',$expectedResponseCode,[
+				'class'=>'PAGINATION_LIST',
+				'pageCurrent'=>1,
+				'pageTotal'=>1,
+				'recordFrom'=>1,
+				'recordTo'=>0,
+				'recordTotal'=>0,
+				'recordPerPage'=>25,
+				'recordList'=>[]
+
+			],[
+				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+			]);
+			return $response['content'];
+		}
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','year','month','page'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/'.($all?'indexAllMonth':'indexMonth').'/'.($urlParameter['page']?$urlParameter['page']:'1'),[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
 	 * edit an entity
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
@@ -237,7 +290,7 @@ class AppointmentRoute extends Route {
 					'class'=>'BOOKING_RESOURCE_SHORT',
 					'id'=>'brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 					'customId'=>'MA1',
-					'type'=>'EMPLOYEE',
+					'category'=>'EMPLOYEE',
 					'name'=>'Max Mustermann',
 					'organizationId'=>'Max Mustermann',
 				],
@@ -245,12 +298,12 @@ class AppointmentRoute extends Route {
 					'class'=>'BOOKING_RESOURCE_SHORT',
 					'id'=>'brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 					'customId'=>'MA1',
-					'type'=>'EMPLOYEE',
+					'category'=>'EMPLOYEE',
 					'name'=>'Maxi Musterfrau',
 					'organizationId'=>'Max Mustermann',
 				],
 				'bookingResourceIdList'=>['brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX','brXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'],
-				'type'=>'EMPLOYEE',
+				'category'=>'EMPLOYEE',
 			],[
 				['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
 			]);
@@ -281,6 +334,27 @@ class AppointmentRoute extends Route {
 		//make request to API
 		$this->checkUrlParameters(['organizationId','appointmentId'],$urlParameter);
 		$response=$this->httpClient->request('PUT','/organization/'.$urlParameter['organizationId'].'/appointment/'.$urlParameter['appointmentId'].'/edit',$requestContent,$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * move an entity
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	array		$requestContent: send this content to api
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function move(array $urlParameter,array $requestContent,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','appointmentId'],$urlParameter);
+		$response=$this->httpClient->request('PUT','/organization/'.$urlParameter['organizationId'].'/appointment/'.$urlParameter['appointmentId'].'/move',$requestContent,$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
@@ -348,19 +422,59 @@ class AppointmentRoute extends Route {
 
 
 	/**
-	 * customEntity list
+	 * list day
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
 	 * @param	integer	$expectedResponseCode: expected http response code for http-client
 	 * @return	array		reponse content
 	 */
-	public function customEntityList(array $urlParameter,$expectedResponseCode) {
+	public function customEntityListDay(array $urlParameter,$expectedResponseCode) {
 		//check submitted parameters
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
-		$this->checkUrlParameters(['organizationId','customEntityId','customEntityType'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/'.$urlParameter['customEntityId'].'/appointment/list',[],$expectedResponseCode);
+		$this->checkUrlParameters(['organizationId','customEntityId','customEntityType','year','month','day'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/'.$urlParameter['customEntityId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/day/'.$urlParameter['day'].'/listDay',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * list week
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function customEntityListWeek(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','customEntityId','customEntityType','year','week'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/'.$urlParameter['customEntityId'].'/appointment/year/'.$urlParameter['year'].'/week/'.$urlParameter['week'].'/listWeek',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * list month
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function customEntityListMonth(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','customEntityId','customEntityType','year','month'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/'.$urlParameter['customEntityId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/listMonth',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
@@ -408,19 +522,59 @@ class AppointmentRoute extends Route {
 
 
 	/**
-	 * customer list
+	 * list day
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
 	 * @param	integer	$expectedResponseCode: expected http response code for http-client
 	 * @return	array		reponse content
 	 */
-	public function customerList(array $urlParameter,$expectedResponseCode) {
+	public function customerListDay(array $urlParameter,$expectedResponseCode) {
 		//check submitted parameters
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
-		$this->checkUrlParameters(['organizationId','customerId'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/appointment/list',[],$expectedResponseCode);
+		$this->checkUrlParameters(['organizationId','customerId','year','month','day'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/day/'.$urlParameter['day'].'/listDay',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * list week
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function customerListWeek(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','customerId','year','week'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/appointment/year/'.$urlParameter['year'].'/week/'.$urlParameter['week'].'/listWeek',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * list month
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function customerListMonth(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','customerId','year','month'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/listMonth',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}

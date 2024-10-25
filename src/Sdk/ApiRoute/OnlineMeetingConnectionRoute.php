@@ -11,7 +11,7 @@ use bookingtime\phpsdkapp\Lib\BasicLib;
  *
  * @author <bookingtime GmbH>
  */
-class ExternalAppointmentRoute extends Route {
+class OnlineMeetingConnectionRoute extends Route {
 
 
 
@@ -29,7 +29,7 @@ class ExternalAppointmentRoute extends Route {
 
 		//make request to API
 		$this->checkUrlParameters(['organizationId'],$urlParameter);
-		$response=$this->httpClient->request('POST','/organization/'.$urlParameter['organizationId'].'/externalAppointment/add',$requestContent,$expectedResponseCode);
+		$response=$this->httpClient->request('POST','/organization/'.$urlParameter['organizationId'].'/onlineMeetingConnection/add',$requestContent,$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
@@ -48,8 +48,8 @@ class ExternalAppointmentRoute extends Route {
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
-		$this->checkUrlParameters(['organizationId','externalAppointmentId'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/externalAppointment/'.$urlParameter['externalAppointmentId'].'/show',[],$expectedResponseCode);
+		$this->checkUrlParameters(['organizationId','onlineMeetingConnectionId'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/onlineMeetingConnection/'.$urlParameter['onlineMeetingConnectionId'].'/show',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
@@ -69,7 +69,7 @@ class ExternalAppointmentRoute extends Route {
 
 		//make request to API
 		$this->checkUrlParameters(['organizationId','customId'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/externalAppointment/'.$urlParameter['customId'].'/identify',[],$expectedResponseCode);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/onlineMeetingConnection/'.$urlParameter['customId'].'/identify',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
@@ -80,16 +80,18 @@ class ExternalAppointmentRoute extends Route {
 	 * index
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	boolean	$all: true - shows all in a short version | false - shows just a few in a detailed version
 	 * @param	integer	$expectedResponseCode: expected http response code for http-client
 	 * @return	array		reponse content
 	 */
-	public function index(array $urlParameter,$expectedResponseCode) {
+	public function index(array $urlParameter,$all,$expectedResponseCode) {
 		//check submitted parameters
+		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
 		$this->checkUrlParameters(['organizationId','page'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/externalAppointment/index/'.($urlParameter['page']?$urlParameter['page']:'1'),[],$expectedResponseCode);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/onlineMeetingConnection/'.($all?'indexAll':'index').'/'.($urlParameter['page']?$urlParameter['page']:'1'),[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
@@ -100,16 +102,18 @@ class ExternalAppointmentRoute extends Route {
 	 * filter entities
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	boolean	$all: true - shows all in a short version | false - shows just a few in a detailed version
 	 * @param	integer	$expectedResponseCode: expected http response code for http-client
 	 * @return	array		reponse content
 	 */
-	public function filter(array $urlParameter,$expectedResponseCode) {
+	public function filter(array $urlParameter,$all,$expectedResponseCode) {
 		//check submitted parameters
+		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
 		$this->checkUrlParameters(['organizationId','searchQuery','page'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/externalAppointment/filter/'.($urlParameter['page']?$urlParameter['page']:'1').'?searchQuery='.$urlParameter['searchQuery'],[],$expectedResponseCode);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/onlineMeetingConnection/'.($all?'filterAll':'filter').'/'.($urlParameter['page']?$urlParameter['page']:'1').'?searchQuery='.$urlParameter['searchQuery'],[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
@@ -120,76 +124,18 @@ class ExternalAppointmentRoute extends Route {
 	 * list entities
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	boolean	$all: true - shows all in a short version | false - shows just a few in a detailed version
 	 * @param	integer	$expectedResponseCode: expected http response code for http-client
 	 * @return	array		reponse content
 	 */
-	public function list(array $urlParameter,$expectedResponseCode) {
+	public function list(array $urlParameter,$all,$expectedResponseCode) {
 		//check submitted parameters
+		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
 		$this->checkUrlParameters(['organizationId'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/externalAppointment/list',[],$expectedResponseCode);
-		#die(BasicLib::debug($response));
-		return $response['content'];
-	}
-
-
-
-	/**
-	 * list day
-	 *
-	 * @param	array		$urlParameter: list of url paramerts like ids
-	 * @param	integer	$expectedResponseCode: expected http response code for http-client
-	 * @return	array		reponse content
-	 */
-	public function listDay(array $urlParameter,$expectedResponseCode) {
-		//check submitted parameters
-		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
-
-		//make request to API
-		$this->checkUrlParameters(['organizationId','year','month','day'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/externalAppointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/day/'.$urlParameter['day'].'/listDay',[],$expectedResponseCode);
-		#die(BasicLib::debug($response));
-		return $response['content'];
-	}
-
-
-
-	/**
-	 * list week
-	 *
-	 * @param	array		$urlParameter: list of url paramerts like ids
-	 * @param	integer	$expectedResponseCode: expected http response code for http-client
-	 * @return	array		reponse content
-	 */
-	public function listWeek(array $urlParameter,$expectedResponseCode) {
-		//check submitted parameters
-		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
-
-		//make request to API
-		$this->checkUrlParameters(['organizationId','year','week'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/externalAppointment/year/'.$urlParameter['year'].'/week/'.$urlParameter['week'].'/listWeek',[],$expectedResponseCode);
-		#die(BasicLib::debug($response));
-		return $response['content'];
-	}
-
-
-
-	/**
-	 * list month
-	 *
-	 * @param	array		$urlParameter: list of url paramerts like ids
-	 * @param	integer	$expectedResponseCode: expected http response code for http-client
-	 * @return	array		reponse content
-	 */
-	public function listMonth(array $urlParameter,$expectedResponseCode) {
-		//check submitted parameters
-		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
-
-		//make request to API
-		$this->checkUrlParameters(['organizationId','year','month'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/externalAppointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/listMonth',[],$expectedResponseCode);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/onlineMeetingConnection/'.($all?'listAll':'list'),[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
@@ -209,8 +155,8 @@ class ExternalAppointmentRoute extends Route {
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
-		$this->checkUrlParameters(['organizationId','externalAppointmentId'],$urlParameter);
-		$response=$this->httpClient->request('PUT','/organization/'.$urlParameter['organizationId'].'/externalAppointment/'.$urlParameter['externalAppointmentId'].'/edit',$requestContent,$expectedResponseCode);
+		$this->checkUrlParameters(['organizationId','onlineMeetingConnectionId'],$urlParameter);
+		$response=$this->httpClient->request('PUT','/organization/'.$urlParameter['organizationId'].'/onlineMeetingConnection/'.$urlParameter['onlineMeetingConnectionId'].'/edit',$requestContent,$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
@@ -229,8 +175,8 @@ class ExternalAppointmentRoute extends Route {
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
-		$this->checkUrlParameters(['organizationId','externalAppointmentId'],$urlParameter);
-		$response=$this->httpClient->request('DELETE','/organization/'.$urlParameter['organizationId'].'/externalAppointment/'.$urlParameter['externalAppointmentId'].'/delete',[],$expectedResponseCode);
+		$this->checkUrlParameters(['organizationId','onlineMeetingConnectionId'],$urlParameter);
+		$response=$this->httpClient->request('DELETE','/organization/'.$urlParameter['organizationId'].'/onlineMeetingConnection/'.$urlParameter['onlineMeetingConnectionId'].'/delete',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}

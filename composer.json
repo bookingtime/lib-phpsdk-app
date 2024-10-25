@@ -29,7 +29,7 @@
     },
     "scripts": {
          "bookingtime": [
-            "ln -sf ../vendor/bin/phpunit ./bin/phpunit"
+            "ln -sfn ../vendor/bin/phpunit ./bin/phpunit"
         ],
         "post-install-cmd": ["@bookingtime"],
         "post-update-cmd": ["@bookingtime"]
