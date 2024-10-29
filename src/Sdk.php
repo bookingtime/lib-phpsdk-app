@@ -1285,6 +1285,8 @@ class Sdk {
 				return $apiRoute->languageList($args[0],200);
 			} case('static_logCategory_list'): {
 				return $apiRoute->logCategoryList($args[0],200);
+			} case('static_marker_list'): {
+				return $apiRoute->markerList($args[0],200);
 			} case('static_permission_list'): {
 				return $apiRoute->permissionList($args[0],200);
 			} case('static_sector_list'): {

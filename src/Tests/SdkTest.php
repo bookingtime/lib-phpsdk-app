@@ -1365,6 +1365,8 @@ class SdkTest extends TestCase {
 		$this->assertEquals($languageList['mock-content'],1);
 		$logCategoryList=$sdk->static_logCategory_list([]);
 		$this->assertEquals($logCategoryList['mock-content'],1);
+		$markerList=$sdk->static_marker_list([]);
+		$this->assertEquals($markerList['class'],'LIST');
 		$permissionList=$sdk->static_permission_list([]);
 		$this->assertEquals($permissionList['mock-content'],1);
 		$sectorList=$sdk->static_sector_list([]);
