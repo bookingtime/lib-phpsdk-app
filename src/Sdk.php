@@ -294,6 +294,8 @@ class Sdk {
 		switch($name) {
 			 case('app_show'): {
 				return $apiRoute->show($args[0],200);
+			} case('app_showByInstallKey'): {
+				return $apiRoute->showByInstallKey($args[0],200);
 			} case('app_index'): {
 				return $apiRoute->index($args[0],200);
 			} case('app_filter'): {
@@ -1029,6 +1031,8 @@ class Sdk {
 		switch($name) {
 			 case('module_show'): {
 				return $apiRoute->show($args[0],200);
+			} case('module_showByInstallKey'): {
+				return $apiRoute->showByInstallKey($args[0],200);
 			} case('module_index'): {
 				return $apiRoute->index($args[0],200);
 			} case('module_filter'): {

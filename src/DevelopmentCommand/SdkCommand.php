@@ -81,6 +81,8 @@ class SdkCommand extends Command {
 
 		#APP
 		// $app=$sdk->app_show(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','appId'=>'70B9EOUxfSN0p866nCa2zGVKma3K3wEy']);
+		// $app=$sdk->app_showByInstallKey(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appInstallKey'=>'sN3JeNvtrPxEBm2td7S4TT4CVhuj9HcQFBPAveoBok3A248mVkNdaTDcTjn3a7p9']);
+		#die(BasicLib::debug($app));
 		// $appArray=$sdk->app_index(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','page'=>'1']);#page optional
 		// $appArray=$sdk->app_filter(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','searchQuery'=>'test','page'=>'1']);#page optional
 		// $appArray=$sdk->app_list(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs',]);
@@ -622,8 +624,10 @@ class SdkCommand extends Command {
 		// $sdk->moduleConfig_appointmentTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','moduleConfigId'=>'5f5ueoQSsb1P2liAVtuRuIpJn1lHSz6R','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P']);
 		// $sdk->moduleConfig_delete(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','moduleConfigId'=>'5fc5FGM96G1UncqO2HBsZxeoDvSC8jKH']);
 
-		#MODULESTORE
+		#MODULE
 		// $module=$sdk->module_show(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','moduleId'=>'23wJv4LyFBK5eGGiyIkDFb9uaVPdr5Vm']);
+		// $module=$sdk->module_showByInstallKey(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','moduleInstallKey'=>'QLQOI7LEILKGeCD7TokM61dYPdOGhld3bk1KrDXXcdRMdp2UGh91qq4uiwOS2Okb']);
+		#die(BasicLib::debug($module));
 		// $moduleArray=$sdk->module_index(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','page'=>'1']);#page optional
 		// $moduleArray=$sdk->module_filter(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','searchQuery'=>'test','page'=>'1']);#page optional
 		// $moduleArray=$sdk->module_list(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs',]);
