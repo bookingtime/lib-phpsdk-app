@@ -79,6 +79,8 @@ class SdkTest extends TestCase {
 		#APP
 		$app=$sdk->app_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appId'=>'70xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($app['mock-content'],1);
+		$app=$sdk->app_showByInstallKey(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appInstallKey'=>'sNxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($app['mock-content'],1);
 		$appArray=$sdk->app_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);#page optional
 		$this->assertEquals($appArray['mock-content'],1);
 		$appArray=$sdk->app_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
@@ -937,6 +939,8 @@ class SdkTest extends TestCase {
 		#MODULE
 		$module=$sdk->module_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','moduleId'=>'23xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($module['mock-content'],1);
+		$module=$sdk->module_showByInstallKey(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','moduleInstallKey'=>'QLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($app['mock-content'],1);
 		$moduleArray=$sdk->module_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);#page optional
 		$this->assertEquals($moduleArray['mock-content'],1);
 		$moduleArray=$sdk->module_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional

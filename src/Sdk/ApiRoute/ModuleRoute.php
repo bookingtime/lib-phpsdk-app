@@ -36,6 +36,26 @@ class ModuleRoute extends Route {
 
 
 	/**
+	 * show an entity by submitted installKey
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like installKey
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function showByInstallKey(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','moduleInstallKey'],$urlParameter);
+		$response=$this->httpClient->request('GET','organization/'.$urlParameter['organizationId'].'/module/'.$urlParameter['moduleInstallKey'].'/showByInstallKey',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
 	 * index
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
