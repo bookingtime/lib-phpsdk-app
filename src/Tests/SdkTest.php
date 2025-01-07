@@ -472,9 +472,9 @@ class SdkTest extends TestCase {
 		$customEntity=$sdk->customEntity_identify(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','customId'=>'666']);
 		$this->assertEquals($customEntity['class'],'CUSTOM_ENTITY');
 		$customEntityArray=$sdk->customEntity_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','page'=>'2']);#page optional
-		$this->assertEquals($customEntityArray['mock-content'],1);
+		$this->assertEquals($customEntityArray['class'],'PAGINATION_LIST');
 		$customEntityArray=$sdk->customEntity_indexAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','page'=>'1']);#page optional
-		$this->assertEquals($customEntityArray['mock-content'],1);
+		$this->assertEquals($customEntityArray['class'],'PAGINATION_LIST');
 		$customEntityArray=$sdk->customEntity_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','searchQuery'=>'test','page'=>'2']);#page optional
 		$this->assertEquals($customEntityArray['mock-content'],1);
 		$customEntityArray=$sdk->customEntity_filterAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','searchQuery'=>'test','page'=>'1']);#page optional
