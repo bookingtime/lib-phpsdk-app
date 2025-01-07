@@ -141,6 +141,39 @@ class CustomEntityRoute extends Route {
 		BasicLib::checkType('boolean',$all,__METHOD__.'(): all');
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
+		//make mock request with dummi content
+		if($this->httpClient->getMock()) {
+			if($all==TRUE) {
+				$response=$this->httpClient->mockRequest('GET','customEntity/indexAll/1',$expectedResponseCode,[
+					'class'=>'PAGINATION_LIST',
+					'pageCurrent'=>1,
+					'pageTotal'=>1,
+					'recordFrom'=>1,
+					'recordTo'=>0,
+					'recordTotal'=>0,
+					'recordPerPage'=>25,
+					'recordList'=>[]
+				],[
+					['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+				]);
+				return $response['content'];
+			} else {
+				$response=$this->httpClient->mockRequest('GET','customEntity/indexlist/1',$expectedResponseCode,[
+					'class'=>'PAGINATION_LIST',
+					'pageCurrent'=>1,
+					'pageTotal'=>1,
+					'recordFrom'=>1,
+					'recordTo'=>0,
+					'recordTotal'=>0,
+					'recordPerPage'=>25,
+					'recordList'=>[]
+				],[
+					['class'=>'MESSAGE','type'=>'success','parameter'=>NULL,'text'=>''],
+				]);
+				return $response['content'];
+			}
+		}
+
 		//make request to API
 		$this->checkUrlParameters(['organizationId','customEntityType','page'],$urlParameter);
 		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customEntity/'.$urlParameter['customEntityType'].'/'.($all?'indexAll':'index').'/'.($urlParameter['page']?$urlParameter['page']:'1'),[],$expectedResponseCode);
