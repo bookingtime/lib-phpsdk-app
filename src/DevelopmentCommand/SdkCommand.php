@@ -518,6 +518,28 @@ class SdkCommand extends Command {
 		// $sdk->employeeGroup_appConfig_unlink(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','employeeGroupId'=>'jsJoeXxMm8Vdez6xmjifrGM1eYwmumTV','appConfigId'=>'c3DfkPErdv7zgyb0nWn2iwJCPgF4kKMD']);
 		// $sdk->employeeGroup_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeGroupId'=>'js96DZ0coJaHPN5OPOs9LExDhwUsAGrH']);
 
+		#EXTRA_FIELD
+		// $data=[
+		// 	'key'=>'extra_field_sdk_command',
+		// 	'customId'=>'ExtraFieldSDKCommandTest',
+		// 	'name'=>'ExtraField SDK Command Test',
+		// 	'nameI18nList'=>[],
+		// 	'type'=>'CHECKBOX',
+		// 	'required'=>FALSE,
+		// ];
+		#$extraField=$sdk->extraField_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO'],$data);
+		#$extraField=$sdk->extraField_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT']);
+		#$extraField=$sdk->extraField_identify(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customId'=>'reason']);
+		#$extraFieldArray=$sdk->extraField_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','page'=>'1']);#page optional
+		#$extraFieldArray=$sdk->extraField_indexAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','page'=>'1']);#page optional
+		#$extraFieldArray=$sdk->extraField_filter(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','searchQuery'=>'test','page'=>'1']);#page optional
+		#$extraFieldArray=$sdk->extraField_filterAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','searchQuery'=>'test','page'=>'1']);#page optional
+		#$extraFieldArray=$sdk->extraField_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
+		#$extraFieldArray=$sdk->extraField_listAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
+		#$data=['name'=>'ExtraField SDK Command Test edited'];
+		#$extraField=$sdk->extraField_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT'],$data);
+		#$sdk->extraField_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT'],[]);
+
 		#FILE
 		// $fileData=file_get_contents(__DIR__.'/fileTest.txt');
 		// $data=[

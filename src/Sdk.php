@@ -204,6 +204,9 @@ class Sdk {
 			} case('employeeGroup'): {
 				$apiRoute=new ApiRoute\EmployeeGroupRoute($this->httpClient);
 				break(1);
+			} case('extraField'): {
+				$apiRoute=new ApiRoute\ExtraFieldRoute($this->httpClient);
+				break(1);
 			} case('file'): {
 				$apiRoute=new ApiRoute\FileRoute($this->httpClient);
 				break(1);
@@ -408,6 +411,10 @@ class Sdk {
 				return $apiRoute->emailTemplateLink($args[0],FALSE,200);
 			} case('appointmentTemplate_emailTemplate_unlink'): {
 				return $apiRoute->emailTemplateLink($args[0],TRUE,200);
+			} case('appointmentTemplate_extraField_link'): {
+				return $apiRoute->extraFieldLink($args[0],FALSE,200);
+			} case('appointmentTemplate_extraField_unlink'): {
+				return $apiRoute->extraFieldLink($args[0],TRUE,200);
 			} case('appointmentTemplate_smsTemplate_link'): {
 				return $apiRoute->smsTemplateLink($args[0],FALSE,200);
 			} case('appointmentTemplate_smsTemplate_unlink'): {
@@ -897,6 +904,33 @@ class Sdk {
 			}
 		}
 
+		//extraField
+		switch($name) {
+			case('extraField_add'): {
+				return $apiRoute->add($args[0],$args[1],201);
+			} case('extraField_show'): {
+				return $apiRoute->show($args[0],200);
+			} case('extraField_identify'): {
+				return $apiRoute->identify($args[0],200);
+			} case('extraField_index'): {
+				return $apiRoute->index($args[0],FALSE,200);
+			} case('extraField_filter'): {
+				return $apiRoute->filter($args[0],FALSE,200);
+			} case('extraField_list'): {
+				return $apiRoute->list($args[0],FALSE,200);
+			} case('extraField_indexAll'): {
+				return $apiRoute->index($args[0],TRUE,200);
+			} case('extraField_filterAll'): {
+				return $apiRoute->filter($args[0],TRUE,200);
+			} case('extraField_listAll'): {
+				return $apiRoute->list($args[0],TRUE,200);
+			} case('extraField_edit'): {
+				return $apiRoute->edit($args[0],$args[1],200);
+			} case('extraField_delete'): {
+				return $apiRoute->delete($args[0],200);
+			}
+		}
+
 		//file
 		switch($name) {
 			case('file_add'): {
@@ -1113,6 +1147,10 @@ class Sdk {
 				return $apiRoute->smsTemplateLink($args[0],FALSE,200);
 			} case('organization_smsTemplate_unlink'): {
 				return $apiRoute->smsTemplateLink($args[0],TRUE,200);
+			} case('organization_extraField_link'): {
+				return $apiRoute->extraFieldLink($args[0],FALSE,200);
+			} case('organization_extraField_unlink'): {
+				return $apiRoute->extraFieldLink($args[0],TRUE,200);
 			} case('organization_subOrganization_addRoot'): {
 				return $apiRoute->subOrganizationAddRoot($args[0],$args[1],201);
 			} case('organization_subOrganization_addSub'): {
