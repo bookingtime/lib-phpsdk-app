@@ -169,6 +169,8 @@ class SdkCommand extends Command {
 		// $sdk->appointmentTemplate_emailTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','emailTemplateId'=>'46a6NWcBgly2Wyl2e5sTXF0joar3KOdV']);
 		// $sdk->appointmentTemplate_smsTemplate_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
 		// $sdk->appointmentTemplate_smsTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
+		// $sdk->appointmentTemplate_extraField_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT']);
+		// $sdk->appointmentTemplate_extraField_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT']);
 		// $sdk->appointmentTemplate_timeGrid_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','year'=>'2021','week'=>'41']);
 		// $data=['rangeStart'=>'2021-11-11T12:00:00+02:00','rangeEnd'=>'2021-11-19T19:00:00+02:00','timeGrid'=>['2021-11-11T12:00:00+02:00','2021-11-11T12:30:00+02:00']];
 		// $sdk->appointmentTemplate_timeGrid_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X'],$data);
@@ -770,7 +772,8 @@ class SdkCommand extends Command {
 		// $sdk->organization_emailTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','emailTemplateId'=>'46a6NWcBgly2Wyl2e5sTXF0joar3KOdV']);
 		// $sdk->organization_smsTemplate_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
 		// $sdk->organization_smsTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
-		#die(BasicLib::debug($organization));
+		// $sdk->organization_extraField_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT']);
+		// $sdk->organization_extraField_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT']);
 
 		// $data=[
 		// 	'name'=>'CB Test Orga New Route',
