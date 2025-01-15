@@ -346,4 +346,26 @@ class AppointmentTemplateRoute extends Route {
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
+
+
+
+	/**
+	 * link/unlink entity
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	boolean	$unlink: true - unlink | false - link
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function extraFieldLink(array $urlParameter,$unlink,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('boolean',$unlink,__METHOD__.'(): unlink');
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','appointmentTemplateId','extraFieldId'],$urlParameter);
+		$response=$this->httpClient->request($unlink?'UNLINK':'LINK','/organization/'.$urlParameter['organizationId'].'/appointmentTemplate/'.$urlParameter['appointmentTemplateId'].'/extraField/'.$urlParameter['extraFieldId'].'/'.($unlink?'unlink':'link'),[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
 }

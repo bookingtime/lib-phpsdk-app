@@ -169,6 +169,8 @@ class SdkCommand extends Command {
 		// $sdk->appointmentTemplate_emailTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','emailTemplateId'=>'46a6NWcBgly2Wyl2e5sTXF0joar3KOdV']);
 		// $sdk->appointmentTemplate_smsTemplate_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
 		// $sdk->appointmentTemplate_smsTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
+		// $sdk->appointmentTemplate_extraField_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT']);
+		// $sdk->appointmentTemplate_extraField_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT']);
 		// $sdk->appointmentTemplate_timeGrid_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','year'=>'2021','week'=>'41']);
 		// $data=['rangeStart'=>'2021-11-11T12:00:00+02:00','rangeEnd'=>'2021-11-19T19:00:00+02:00','timeGrid'=>['2021-11-11T12:00:00+02:00','2021-11-11T12:30:00+02:00']];
 		// $sdk->appointmentTemplate_timeGrid_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X'],$data);
@@ -518,6 +520,28 @@ class SdkCommand extends Command {
 		// $sdk->employeeGroup_appConfig_unlink(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','employeeGroupId'=>'jsJoeXxMm8Vdez6xmjifrGM1eYwmumTV','appConfigId'=>'c3DfkPErdv7zgyb0nWn2iwJCPgF4kKMD']);
 		// $sdk->employeeGroup_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeGroupId'=>'js96DZ0coJaHPN5OPOs9LExDhwUsAGrH']);
 
+		#EXTRA_FIELD
+		// $data=[
+		// 	'key'=>'extra_field_sdk_command',
+		// 	'customId'=>'ExtraFieldSDKCommandTest',
+		// 	'name'=>'ExtraField SDK Command Test',
+		// 	'nameI18nList'=>[],
+		// 	'type'=>'CHECKBOX',
+		// 	'required'=>FALSE,
+		// ];
+		#$extraField=$sdk->extraField_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO'],$data);
+		#$extraField=$sdk->extraField_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT']);
+		#$extraField=$sdk->extraField_identify(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customId'=>'reason']);
+		#$extraFieldArray=$sdk->extraField_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','page'=>'1']);#page optional
+		#$extraFieldArray=$sdk->extraField_indexAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','page'=>'1']);#page optional
+		#$extraFieldArray=$sdk->extraField_filter(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','searchQuery'=>'test','page'=>'1']);#page optional
+		#$extraFieldArray=$sdk->extraField_filterAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','searchQuery'=>'test','page'=>'1']);#page optional
+		#$extraFieldArray=$sdk->extraField_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
+		#$extraFieldArray=$sdk->extraField_listAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
+		#$data=['name'=>'ExtraField SDK Command Test edited'];
+		#$extraField=$sdk->extraField_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT'],$data);
+		#$sdk->extraField_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT'],[]);
+
 		#FILE
 		// $fileData=file_get_contents(__DIR__.'/fileTest.txt');
 		// $data=[
@@ -748,7 +772,8 @@ class SdkCommand extends Command {
 		// $sdk->organization_emailTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','emailTemplateId'=>'46a6NWcBgly2Wyl2e5sTXF0joar3KOdV']);
 		// $sdk->organization_smsTemplate_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
 		// $sdk->organization_smsTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
-		#die(BasicLib::debug($organization));
+		// $sdk->organization_extraField_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT']);
+		// $sdk->organization_extraField_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','extraFieldId'=>'l18foxcwCmPkWEtPIPlpYyKf3R3mvduT']);
 
 		// $data=[
 		// 	'name'=>'CB Test Orga New Route',

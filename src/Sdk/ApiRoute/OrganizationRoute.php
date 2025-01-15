@@ -385,6 +385,28 @@ class OrganizationRoute extends Route {
 
 
 	/**
+	 * link/unlink entity
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	boolean	$unlink: true - unlink | false - link
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function extraFieldLink(array $urlParameter,$unlink,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('boolean',$unlink,__METHOD__.'(): unlink');
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','extraFieldId'],$urlParameter);
+		$response=$this->httpClient->request($unlink?'UNLINK':'LINK','/organization/'.$urlParameter['organizationId'].'/extraField/'.$urlParameter['extraFieldId'].'/'.($unlink?'unlink':'link'),[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
 	 * add an entity
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids

@@ -214,6 +214,10 @@ class SdkTest extends TestCase {
 		$this->assertEquals($appointmentTemplateSimple['mock-content'],1);
 		$appointmentTemplateSimple=$sdk->appointmentTemplate_smsTemplate_unlink(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','smsTemplateId'=>'6Gxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($appointmentTemplateSimple['mock-content'],1);
+		$appointmentTemplateSimple=$sdk->appointmentTemplate_extraField_link(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','extraFieldId'=>'l1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateSimple['mock-content'],1);
+		$appointmentTemplateSimple=$sdk->appointmentTemplate_extraField_unlink(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','extraFieldId'=>'l1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateSimple['mock-content'],1);
 		$appointmentTemplateSimple=$sdk->appointmentTemplate_timeGrid_listWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','week'=>'41']);
 		$this->assertEquals($appointmentTemplateSimple['mock-content'],1);
 		$data=['rangeStart'=>'2021-11-11T12:00:00+02:00','rangeEnd'=>'2021-11-19T19:00:00+02:00','timeGrid'=>['2021-11-11T12:00:00+02:00','2021-11-11T12:30:00+02:00']];
@@ -792,6 +796,39 @@ class SdkTest extends TestCase {
 		$employeeGroup=$sdk->employeeGroup_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','employeeGroupId'=>'jsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($employeeGroup['mock-content'],1);
 
+		#EXTRA_FIELD
+		$data=[
+			'key'=>'extra_field_sdk',
+			'customId'=>'extraFieldSdk',
+			'name'=>'Extra Field SDK',
+			'nameI18nList'=>[],
+			'type'=>'CHECKBOX',
+			'required'=>FALSE,
+		];
+		$extraField=$sdk->extraField_add(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($extraField['mock-content'],1);
+		$extraField=$sdk->extraField_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','extraFieldId'=>'l1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($extraField['mock-content'],1);
+		$extraField=$sdk->extraField_identify(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customId'=>'1234']);
+		$this->assertEquals($extraField['mock-content'],1);
+		$extraFieldArray=$sdk->extraField_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);#page optional
+		$this->assertEquals($extraFieldArray['mock-content'],1);
+		$extraFieldArray=$sdk->extraField_indexAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);#page optional
+		$this->assertEquals($extraFieldArray['mock-content'],1);
+		$extraFieldArray=$sdk->extraField_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
+		$this->assertEquals($extraFieldArray['mock-content'],1);
+		$extraFieldArray=$sdk->extraField_filterAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
+		$this->assertEquals($extraFieldArray['mock-content'],1);
+		$extraFieldArray=$sdk->extraField_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($extraFieldArray['mock-content'],1);
+		$extraFieldArray=$sdk->extraField_listAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($extraFieldArray['mock-content'],1);
+		$data=['name'=>'Extra Field SDK edited'];
+		$extraField=$sdk->extraField_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','extraFieldId'=>'l1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($extraField['mock-content'],1);
+		$extraField=$sdk->extraField_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','extraFieldId'=>'l1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],[]);
+		$this->assertEquals($extraField['mock-content'],1);
+
 		#FILE
 		$data=[
 			'name'=>'testDatei2',
@@ -1093,6 +1130,10 @@ class SdkTest extends TestCase {
 		$organization=$sdk->organization_smsTemplate_link(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','smsTemplateId'=>'6Gxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($organization['mock-content'],1);
 		$organization=$sdk->organization_smsTemplate_unlink(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','smsTemplateId'=>'6Gxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($organization['mock-content'],1);
+		$organization=$sdk->organization_extraField_link(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','extraFieldId'=>'l1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($organization['mock-content'],1);
+		$organization=$sdk->organization_extraField_unlink(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','extraFieldId'=>'l1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($organization['mock-content'],1);
 		$data=[
 			'name'=>'CB Test Orga New Route',
