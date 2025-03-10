@@ -202,6 +202,10 @@ class SdkTest extends TestCase {
 		$data=['name'=>'Terminvorlage simple edited'];
 		$appointmentTemplateSimple=$sdk->appointmentTemplate_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
 		$this->assertEquals($appointmentTemplateSimple['mock-content'],1);
+		$appointmentTemplateSimple=$sdk->appointmentTemplate_appointmentTemplateCategory_link(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateCategoryId'=>'4dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateSimple['mock-content'],1);
+		$appointmentTemplateSimple=$sdk->appointmentTemplate_appointmentTemplateCategory_unlink(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateCategoryId'=>'4dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateSimple['mock-content'],1);
 		$appointmentTemplateSimple=$sdk->appointmentTemplate_bookingResource_link(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','bookingResourceId'=>'brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($appointmentTemplateSimple['mock-content'],1);
 		$appointmentTemplateSimple=$sdk->appointmentTemplate_bookingResource_unlink(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'eaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','bookingResourceId'=>'brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
