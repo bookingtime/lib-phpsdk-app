@@ -196,7 +196,7 @@ class SdkCommand extends Command {
 		#$appointmentTemplateCategoryArray=$sdk->appointmentTemplateCategory_filterAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','searchQuery'=>'test','page'=>'1']);#page optional
 		#$appointmentTemplateCategoryArray=$sdk->appointmentTemplateCategory_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
 		// $appointmentTemplateCategoryArray=$sdk->appointmentTemplateCategory_listAll(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
-		// $data=['name'=>'AppointmentTemplateCategory SDK Command edited','customId'=>'AppointmentTemplateCategorySDKCommandTest'];
+		// $data=['name'=>'AppointmentTemplateCategory SDK Command edited'];
 		// $appointmentTemplateCategory=$sdk->appointmentTemplateCategory_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateCategoryId'=>'4d0RcRg1fHVHwSHFlupTdVMZL1Rc3yMq'],$data);
 		// $sdk->appointmentTemplateCategory_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateCategoryId'=>'4d0RcRg1fHVHwSHFlupTdVMZL1Rc3yMq'],[]);
 
