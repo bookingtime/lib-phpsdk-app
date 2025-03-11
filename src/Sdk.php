@@ -162,6 +162,9 @@ class Sdk {
 			} case('appointmentTemplate'): {
 				$apiRoute=new ApiRoute\AppointmentTemplateRoute($this->httpClient);
 				break(1);
+			} case('appointmentTemplateCategory'): {
+				$apiRoute=new ApiRoute\AppointmentTemplateCategoryRoute($this->httpClient);
+				break(1);
 			} case('appointmentTemplateEventDateTime'): {
 				$apiRoute=new ApiRoute\AppointmentTemplateEventDateTimeRoute($this->httpClient);
 				break(1);
@@ -397,6 +400,10 @@ class Sdk {
 				return $apiRoute->edit($args[0],$args[1],200);
 			} case('appointmentTemplate_delete'): {
 				return $apiRoute->delete($args[0],200);
+			} case('appointmentTemplate_appointmentTemplateCategory_link'): {
+				return $apiRoute->appointmentTemplateCategoryLink($args[0],FALSE,200);
+			} case('appointmentTemplate_appointmentTemplateCategory_unlink'): {
+				return $apiRoute->appointmentTemplateCategoryLink($args[0],TRUE,200);
 			} case('appointmentTemplate_bookingResource_link'): {
 				return $apiRoute->bookingResourceLink($args[0],FALSE,200);
 			} case('appointmentTemplate_bookingResource_unlink'): {
@@ -423,6 +430,33 @@ class Sdk {
 				return $apiRoute->timeGridListWeek($args[0],200);
 			} case('appointmentTemplate_timeGrid_edit'): {
 				return $apiRoute->timeGridEdit($args[0],$args[1],200);
+			}
+		}
+
+		//appointmentTemplateCategory
+		switch($name) {
+			case('appointmentTemplateCategory_add'): {
+				return $apiRoute->add($args[0],$args[1],201);
+			} case('appointmentTemplateCategory_show'): {
+				return $apiRoute->show($args[0],200);
+			} case('appointmentTemplateCategory_identify'): {
+				return $apiRoute->identify($args[0],200);
+			} case('appointmentTemplateCategory_index'): {
+				return $apiRoute->index($args[0],FALSE,200);
+			} case('appointmentTemplateCategory_filter'): {
+				return $apiRoute->filter($args[0],FALSE,200);
+			} case('appointmentTemplateCategory_list'): {
+				return $apiRoute->list($args[0],FALSE,200);
+			} case('appointmentTemplateCategory_indexAll'): {
+				return $apiRoute->index($args[0],TRUE,200);
+			} case('appointmentTemplateCategory_filterAll'): {
+				return $apiRoute->filter($args[0],TRUE,200);
+			} case('appointmentTemplateCategory_listAll'): {
+				return $apiRoute->list($args[0],TRUE,200);
+			} case('appointmentTemplateCategory_edit'): {
+				return $apiRoute->edit($args[0],$args[1],200);
+			} case('appointmentTemplateCategory_delete'): {
+				return $apiRoute->delete($args[0],200);
 			}
 		}
 
