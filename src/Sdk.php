@@ -258,6 +258,9 @@ class Sdk {
 			} case('static'): {
 				$apiRoute=new ApiRoute\StaticRoute($this->httpClient);
 				break(1);
+			} case('statistic'): {
+				$apiRoute=new ApiRoute\StatisticRoute($this->httpClient);
+				break(1);
 			} case('synchronization'): {
 				$apiRoute=new ApiRoute\SynchronizationRoute($this->httpClient);
 				break(1);
@@ -1349,7 +1352,7 @@ class Sdk {
 			}
 		}
 
-		//staticc
+		//static
 		switch($name) {
 			case('static_country_list'): {
 				return $apiRoute->countryList($args[0],200);
@@ -1371,6 +1374,25 @@ class Sdk {
 				return $apiRoute->timeZoneList($args[0],200);
 			} case('static_organizationTemplateData_list'): {
 				return $apiRoute->organizationTemplateDataList($args[0],200);
+			}
+		}
+
+		//statistic
+		switch($name) {
+			case('statistic_show'): {
+				return $apiRoute->show($args[0],200);
+			} case('statistic_indexDay'): {
+				return $apiRoute->indexDay($args[0],FALSE,200);
+			} case('statistic_indexWeek'): {
+				return $apiRoute->indexWeek($args[0],FALSE,200);
+			} case('statistic_indexMonth'): {
+				return $apiRoute->indexMonth($args[0],FALSE,200);
+			} case('statistic_indexAllDay'): {
+				return $apiRoute->indexDay($args[0],TRUE,200);
+			} case('statistic_indexAllWeek'): {
+				return $apiRoute->indexWeek($args[0],TRUE,200);
+			} case('statistic_indexAllMonth'): {
+				return $apiRoute->indexMonth($args[0],TRUE,200);
 			}
 		}
 
