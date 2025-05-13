@@ -1425,6 +1425,22 @@ class SdkTest extends TestCase {
 		$organizationTemplateDataList=$sdk->static_organizationTemplateData_list([]);
 		$this->assertEquals($organizationTemplateDataList['mock-content'],1);
 
+		#STATISTIC
+		$statistic=$sdk->statistic_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','statisticId'=>'fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($statistic['mock-content'],1);
+		$statisticArray=$sdk->statistic_indexDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','day'=>'28','page'=>'1']);
+		$this->assertEquals($statisticArray['class'],'PAGINATION_LIST');
+		$statisticArray=$sdk->statistic_indexWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','week'=>'39','page'=>'1']);
+		$this->assertEquals($statisticArray['class'],'PAGINATION_LIST');
+		$statisticArray=$sdk->statistic_indexMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','page'=>'1']);
+		$this->assertEquals($statisticArray['class'],'PAGINATION_LIST');
+		$statisticArray=$sdk->statistic_indexAllDay(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','day'=>'28','page'=>'1']);
+		$this->assertEquals($statisticArray['class'],'PAGINATION_LIST');
+		$vArray=$sdk->statistic_indexAllWeek(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','week'=>'39','page'=>'1']);
+		$this->assertEquals($statisticArray['class'],'PAGINATION_LIST');
+		$statisticArray=$sdk->statistic_indexAllMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2021','month'=>'9','page'=>'1']);
+		$this->assertEquals($statisticArray['class'],'PAGINATION_LIST');
+
 		#SYNCHRONIZATION
 		$data=[
 			'bookingResourceId'=>'brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
