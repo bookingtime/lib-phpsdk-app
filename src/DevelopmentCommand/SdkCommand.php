@@ -161,6 +161,9 @@ class SdkCommand extends Command {
 		// $appointmentTemplateSimple=$sdk->appointmentTemplate_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO'],$data);
 		// $appointmentTemplateSimple=$sdk->appointmentTemplate_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X']);
 		// $appointmentTemplateSimple=$sdk->appointmentTemplate_identify(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','customId'=>'666']);
+		// $data=['name'=>'Terminvorlage simple copied'];
+		// $appointmentTemplateSimple=$sdk->appointmentTemplate_copy(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X'],$data);
+		#die(BasicLib::debug($appointmentTemplateSimple));
 		// $data=['name'=>'Terminvorlage simple edited'];
 		// $sdk->appointmentTemplate_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X'],$data);
 		// $sdk->appointmentTemplate_appointmentTemplateCategory_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'ea5viEwqzcz55RGwF6vR8U9UywkW6m2X','appointmentTemplateCategoryId'=>'4d2dRjcF87YQNV5UVR7nMRzFeWt9nmFE']);
@@ -207,18 +210,21 @@ class SdkCommand extends Command {
 		// 	'duration'=>90,
 		// ];
 		// $appointmentTemplateComplex=$sdk->appointmentTemplate_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO'],$data);
-		// $appointmentTemplateComplex=$sdk->appointmentTemplate_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P']);
-		// $appointmentTemplateComplex=$sdk->appointmentTemplate_identify(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P','customId'=>'1234']);
+		// $appointmentTemplateComplex=$sdk->appointmentTemplate_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P']);
+		// $appointmentTemplateComplex=$sdk->appointmentTemplate_identify(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P','customId'=>'1234']);
+		// $data=['name'=>'Terminvorlage complex copied'];
+		// $appointmentTemplateComplex=$sdk->appointmentTemplate_copy(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P'],$data);
+		#die(BasicLib::debug($appointmentTemplateComplex));
 		// $data=['name'=>'Terminvorlage complex edited'];
-		// $sdk->appointmentTemplate_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P'],$data);
-		// $sdk->appointmentTemplate_emailTemplate_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P','emailTemplateId'=>'46a6NWcBgly2Wyl2e5sTXF0joar3KOdV']);
-		// $sdk->appointmentTemplate_emailTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P','emailTemplateId'=>'46a6NWcBgly2Wyl2e5sTXF0joar3KOdV']);
-		// $sdk->appointmentTemplate_smsTemplate_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
-		// $sdk->appointmentTemplate_smsTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
-		// $sdk->appointmentTemplate_timeGrid_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P','year'=>'2021','week'=>'41']);
+		// $sdk->appointmentTemplate_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P'],$data);
+		// $sdk->appointmentTemplate_emailTemplate_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P','emailTemplateId'=>'46a6NWcBgly2Wyl2e5sTXF0joar3KOdV']);
+		// $sdk->appointmentTemplate_emailTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P','emailTemplateId'=>'46a6NWcBgly2Wyl2e5sTXF0joar3KOdV']);
+		// $sdk->appointmentTemplate_smsTemplate_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
+		// $sdk->appointmentTemplate_smsTemplate_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P','smsTemplateId'=>'6G4qU5lcT3AyZwkRfZtm4eRegr1ma9yl']);
+		// $sdk->appointmentTemplate_timeGrid_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P','year'=>'2021','week'=>'41']);
 		// $data=['rangeStart'=>'2021-10-11T12:00:00+02:00','rangeEnd'=>'2021-10-19T19:00:00+02:00','timeGrid'=>['2021-10-11T12:00:00+02:00','2021-10-11T12:30:00+02:00']];
-		// $sdk->appointmentTemplate_timeGrid_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P'],$data);
-		// $sdk->appointmentTemplate_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'eaURedwhApwgw5YAe3kNBPiDsUKJxS3P']);
+		// $sdk->appointmentTemplate_timeGrid_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P'],$data);
+		// $sdk->appointmentTemplate_delete(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentTemplateId'=>'vcURedwhApwgw5YAe3kNBPiDsUKJxS3P']);
 
 		#APPOINTMENTTEMPLATESTEP
 		// $data=[
