@@ -399,6 +399,8 @@ class Sdk {
 				return $apiRoute->filter($args[0],TRUE,200);
 			} case('appointmentTemplate_listAll'): {
 				return $apiRoute->list($args[0],TRUE,200);
+			} case('appointmentTemplate_copy'): {
+				return $apiRoute->copy($args[0],$args[1],201);
 			} case('appointmentTemplate_edit'): {
 				return $apiRoute->edit($args[0],$args[1],200);
 			} case('appointmentTemplate_delete'): {
