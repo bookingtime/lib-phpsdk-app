@@ -267,6 +267,9 @@ class Sdk {
 			} case('synchronizationLog'): {
 				$apiRoute=new ApiRoute\SynchronizationLogRoute($this->httpClient);
 				break(1);
+			} case('user'): {
+				$apiRoute=new ApiRoute\UserRoute($this->httpClient);
+				break(1);
 			}
 		}
 
@@ -1433,6 +1436,15 @@ class Sdk {
 				return $apiRoute->show($args[0],200);
 			} case('synchronizationLog_index'): {
 				return $apiRoute->index($args[0],FALSE,200);
+			}
+		}
+
+		//synchronizationLog
+		switch($name) {
+			case('user_show'): {
+				return $apiRoute->show($args[0],200);
+			} case('user_edit'): {
+				return $apiRoute->edit($args[0],$args[1],200);
 			}
 		}
 
