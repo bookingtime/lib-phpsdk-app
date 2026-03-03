@@ -971,7 +971,6 @@ class SdkCommand extends Command {
 		// $smsCustomer=$sdk->sms_customer_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC'],$data);
 		#die(BasicLib::debug($smsCustomer));
 
-
 		#SMSTEMPLATE
 		// $data=[
 		// 	'name'=>'SMS Template Test',
@@ -1046,6 +1045,12 @@ class SdkCommand extends Command {
 		#$synchronizationLog=$sdk->synchronizationLog_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','synchronizationId'=>'A7CQ0ZOgj6gKnouvjVLRCr3GWizkiD5B','synchronizationLogId'=>'7qydl51FdZjQD5dwXdPrl74FIopumLMV']);
 		#$synchronizationLog=$sdk->synchronizationLog_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','synchronizationId'=>'A7CQ0ZOgj6gKnouvjVLRCr3GWizkiD5B','page'=>'1']);#page optional
 		#die(BasicLib::debug($synchronizationLog));
+
+		#USER
+		#user=$sdk->user_show(['userId'=>'9dh8QlN5KlwIaCVnw7EpbSlIqIOElkl5');
+		#$data=['additionalData'=>['test'=>'123']];
+		#$sdk->user_edit(['userId'=>'9dh8QlN5KlwIaCVnw7EpbSlIqIOElkl5'],$data);
+		#die(BasicLib::debug($user));
 
 		$output->writeln('last message: '."\n".$sdk->getMessageArrayAsString());
 		$output->writeln('last request: '."\n".print_r($sdk->getLastRequestInfo(),TRUE));
