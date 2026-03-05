@@ -1495,5 +1495,12 @@ class SdkTest extends TestCase {
 		$this->assertEquals($synchronizationLog['mock-content'],1);
 		$synchronizationLogArray=$sdk->synchronizationLog_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','synchronizationId'=>'A7xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);#page optional
 		$this->assertEquals($synchronizationLogArray['mock-content'],1);
+
+		#USER
+		$user=$sdk->user_show(['userId'=>'9dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($user['mock-content'],1);
+		$data=['additionalData'=>['test'=>'data']];
+		$user=$sdk->user_edit(['userId'=>'9dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($user['mock-content'],1);
 	}
 }

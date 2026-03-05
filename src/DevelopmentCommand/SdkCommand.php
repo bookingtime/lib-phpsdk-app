@@ -971,7 +971,6 @@ class SdkCommand extends Command {
 		// $smsCustomer=$sdk->sms_customer_add(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC'],$data);
 		#die(BasicLib::debug($smsCustomer));
 
-
 		#SMSTEMPLATE
 		// $data=[
 		// 	'name'=>'SMS Template Test',
