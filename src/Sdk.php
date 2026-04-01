@@ -461,6 +461,8 @@ class Sdk {
 				return $apiRoute->filter($args[0],TRUE,200);
 			} case('appointmentTemplateCategory_listAll'): {
 				return $apiRoute->list($args[0],TRUE,200);
+			} case('appointmentTemplateCategory_tree'): {
+				return $apiRoute->tree($args[0],200);
 			} case('appointmentTemplateCategory_edit'): {
 				return $apiRoute->edit($args[0],$args[1],200);
 			} case('appointmentTemplateCategory_delete'): {

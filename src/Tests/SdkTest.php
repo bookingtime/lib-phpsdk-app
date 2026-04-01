@@ -283,6 +283,37 @@ class SdkTest extends TestCase {
 		$appointmentTemplateComplex=$sdk->appointmentTemplate_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateId'=>'vcxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($appointmentTemplateComplex['mock-content'],1);
 
+		#APPOINTMENTTEMPLATECATEGORY
+		$data=[
+			'name'=>'Testkategorie',
+			'nameI18nList'=>[['key'=>'en','value'=>'Test category']],
+		];
+		$appointmentTemplateCategory=$sdk->appointmentTemplateCategory_add(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($appointmentTemplateCategory['mock-content'],1);
+		$appointmentTemplateCategory=$sdk->appointmentTemplateCategory_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateCategoryId'=>'4dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateCategory['mock-content'],1);
+		$appointmentTemplateCategory=$sdk->appointmentTemplateCategory_identify(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customId'=>'666']);
+		$this->assertEquals($appointmentTemplateCategory['mock-content'],1);
+		$appointmentTemplateCategoryArray=$sdk->appointmentTemplateCategory_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'2']);#page optional
+		$this->assertEquals($appointmentTemplateCategoryArray['mock-content'],1);
+		$appointmentTemplateCategoryArray=$sdk->appointmentTemplateCategory_indexAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'1']);#page optional
+		$this->assertEquals($appointmentTemplateCategoryArray['mock-content'],1);
+		$appointmentTemplateCategoryArray=$sdk->appointmentTemplateCategory_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'2']);#page optional
+		$this->assertEquals($appointmentTemplateCategoryArray['mock-content'],1);
+		$appointmentTemplateCategoryArray=$sdk->appointmentTemplateCategory_filterAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'1']);#page optional
+		$this->assertEquals($appointmentTemplateCategoryArray['mock-content'],1);
+		$appointmentTemplateCategoryArray=$sdk->appointmentTemplateCategory_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateCategoryArray['mock-content'],1);
+		$appointmentTemplateCategoryArray=$sdk->appointmentTemplateCategory_listAll(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateCategoryArray['mock-content'],1);
+		$appointmentTemplateCategoryArray=$sdk->appointmentTemplateCategory_tree(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateCategoryArray['mock-content'],1);
+		$data=['name'=>'Testkategorie edited'];
+		$appointmentTemplateCategory=$sdk->appointmentTemplateCategory_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateCategoryId'=>'4dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($appointmentTemplateCategory['mock-content'],1);
+		$appointmentTemplateCategory=$sdk->appointmentTemplateCategory_delete(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentTemplateCategoryId'=>'4dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentTemplateCategory['mock-content'],1);
+
 		#APPOINTMENTTEMPLATE_EVENT_DATE_TIME
 		$data=[
 			'customId'=>'sdk1test',

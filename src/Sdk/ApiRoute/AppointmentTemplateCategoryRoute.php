@@ -143,6 +143,27 @@ class AppointmentTemplateCategoryRoute extends Route {
 
 
 	/**
+	 * list entities as tree
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	boolean	$all: true - shows all in a short version | false - shows just a few in a detailed version
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function tree(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/appointmentTemplateCategory/tree',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
 	 * edit an entity
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
