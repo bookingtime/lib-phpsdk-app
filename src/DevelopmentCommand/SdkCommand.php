@@ -120,6 +120,7 @@ class SdkCommand extends Command {
 		#$appointment=$sdk->appointment_customer_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customerId'=>'d3cTwmaQHY6vAZTZFwjcAsrLhuFNiKN8','year'=>'2024','week'=>'39']);
 		#$appointment=$sdk->appointment_customer_listMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customerId'=>'d3cTwmaQHY6vAZTZFwjcAsrLhuFNiKN8','year'=>'2024','month'=>'5']);
 		// $appointment=$sdk->appointment_customer_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customerId'=>'d3cTwmaQHY6vAZTZFwjcAsrLhuFNiKN8']);
+		#$appointmentListCsv=$sdk->appointment_customer_listCsv(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
 
 		#APPOINTMENTTEMPLATE
 		//$appointmentTemplateArray=$sdk->appointmentTemplate_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','page'=>'2']);#page optional

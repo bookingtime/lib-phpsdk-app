@@ -375,6 +375,8 @@ class Sdk {
 				return $apiRoute->customerLink($args[0],FALSE,200);
 			} case('appointment_customer_unlink'): {
 				return $apiRoute->customerLink($args[0],TRUE,200);
+			} case('appointment_customer_listCsv'): {
+				return $apiRoute->customerListCsv($args[0],200);
 			} case('appointment_file_link'): {
 				return $apiRoute->fileLink($args[0],FALSE,200);
 			} case('appointment_file_unlink'): {
