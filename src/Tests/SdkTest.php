@@ -144,6 +144,8 @@ class SdkTest extends TestCase {
 		$this->assertEquals($appointmentArray['mock-content'],1);
 		$appointmentArray=$sdk->appointment_customer_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','searchQuery'=>'test','page'=>'2']);
 		$this->assertEquals($appointmentArray['mock-content'],1);
+		$appointmentListCsv=$sdk->appointment_customer_listCsv(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($appointmentListCsv['mock-content'],1);
 
 		#APPOINTMENTTEMPLATE
 		$appointmentTemplateArray=$sdk->appointmentTemplate_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','page'=>'2']);#page optional
