@@ -1003,6 +1003,10 @@ class SdkCommand extends Command {
 		// $sectorList=$sdk->static_sector_list([]);
 		// $timeZoneList=$sdk->static_timeZone_list([]);
 			#$organizationTemplateDataList=$sdk->static_organizationTemplateData_list([]);
+$adminNewsList=$sdk->static_adminNews_list([]);
+
+die(BasicLib::debug($adminNewsList));
+
 		// $error=$sdk->static_error_show(['errorCode'=>400]);
 		// $error=$sdk->static_error_show(['errorCode'=>401]);
 		// $error=$sdk->static_error_show(['errorCode'=>403]);
