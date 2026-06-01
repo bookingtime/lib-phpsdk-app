@@ -1463,6 +1463,8 @@ class SdkTest extends TestCase {
 		$this->assertEquals($timeZoneList['mock-content'],1);
 		$organizationTemplateDataList=$sdk->static_organizationTemplateData_list([]);
 		$this->assertEquals($organizationTemplateDataList['mock-content'],1);
+		$adminNewsList=$sdk->static_adminNews_list([]);
+		$this->assertEquals($adminNewsList['mock-content'],1);
 
 		#STATISTIC
 		$statistic=$sdk->statistic_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','statisticId'=>'fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);

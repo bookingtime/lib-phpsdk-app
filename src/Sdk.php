@@ -1383,6 +1383,8 @@ class Sdk {
 				return $apiRoute->timeZoneList($args[0],200);
 			} case('static_organizationTemplateData_list'): {
 				return $apiRoute->organizationTemplateDataList($args[0],200);
+			} case('static_adminNews_list'): {
+				return $apiRoute->adminNewsList($args[0],200);
 			}
 		}
 
