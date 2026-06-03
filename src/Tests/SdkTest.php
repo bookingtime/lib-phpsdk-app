@@ -917,6 +917,11 @@ class SdkTest extends TestCase {
 		$fileArray=$sdk->file_customer_list(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customerId'=>'d3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($fileArray['mock-content'],1);
 
+		#IMAGE
+		$data=['fileName'=>'testImage','fileContent'=>base64_encode('testImageContent')];
+		$image=$sdk->image_add(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
+		$this->assertEquals($image['class'],'IMAGE_SHORT');
+
 		#LICENSE
 		$license=$sdk->license_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','licenseId'=>'23xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($license['mock-content'],1);

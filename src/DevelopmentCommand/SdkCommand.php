@@ -1013,6 +1013,15 @@ class SdkCommand extends Command {
 		// $error=$sdk->static_error_show(['errorCode'=>500]);
 		#die(BasicLib::debug($organizationTemplateDataList));
 
+		#STATISTIC
+		// $statistic=$sdk->statistic_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','statisticId'=>'fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		// $statisticArray=$sdk->statistic_indexDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','day'=>'28','page'=>'1']);
+		// $statisticArray=$sdk->statistic_indexAllDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','day'=>'28','page'=>'1']);
+		// $statisticArray=$sdk->statistic_indexWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','week'=>'39','page'=>'1']);
+		// $statisticArray=$sdk->statistic_indexAllWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','week'=>'39','page'=>'1']);
+		// $statisticArray=$sdk->statistic_indexMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','page'=>'1']);
+		// $statisticArray=$sdk->statistic_indexAllMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','page'=>'1']);
+
 		#SYNCHRONIZATION
 		// $data=[
 		// 	'bookingResourceId'=>'brOayV9d7lcj5vjeG0Pl1qFuK92v4Uaf',
@@ -1049,6 +1058,11 @@ class SdkCommand extends Command {
 		#$synchronizationLog=$sdk->synchronizationLog_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','synchronizationId'=>'A7CQ0ZOgj6gKnouvjVLRCr3GWizkiD5B','synchronizationLogId'=>'7qydl51FdZjQD5dwXdPrl74FIopumLMV']);
 		#$synchronizationLog=$sdk->synchronizationLog_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','synchronizationId'=>'A7CQ0ZOgj6gKnouvjVLRCr3GWizkiD5B','page'=>'1']);#page optional
 		#die(BasicLib::debug($synchronizationLog));
+
+		#USER
+		// $user=$sdk->user_show(['userId'=>'9dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		// $data=['name'=>'User Test edited'];
+		// $sdk->user_edit(['userId'=>'9dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
 
 		$output->writeln('last message: '."\n".$sdk->getMessageArrayAsString());
 		$output->writeln('last request: '."\n".print_r($sdk->getLastRequestInfo(),TRUE));
