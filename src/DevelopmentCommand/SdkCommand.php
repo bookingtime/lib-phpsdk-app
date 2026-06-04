@@ -110,6 +110,7 @@ class SdkCommand extends Command {
 		// $this->assertEquals($appointment['mock-content'],1);
 		// $sdk->appointment_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX'],$data);
 		// $sdk->appointment_cancel(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
+		// $sdk->appointment_uncancel(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
 		#$appointment=$sdk->appointment_customEntity_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customEntityType'=>'rentalCar','customEntityId'=>'6TW0kOIdHlZh0EzwtWODyMatn7fU3Aox','year'=>'2024','month'=>'5','day'=>'28']);
 		#$appointment=$sdk->appointment_customEntity_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customEntityType'=>'rentalCar','customEntityId'=>'6TW0kOIdHlZh0EzwtWODyMatn7fU3Aox','year'=>'2024','week'=>'39']);
 		#$appointment=$sdk->appointment_customEntity_listMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customEntityType'=>'rentalCar','customEntityId'=>'6TW0kOIdHlZh0EzwtWODyMatn7fU3Aox','year'=>'2024','month'=>'5']);
