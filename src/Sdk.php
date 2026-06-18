@@ -351,6 +351,8 @@ class Sdk {
 				return $apiRoute->move($args[0],$args[1],200);
 			} case('appointment_cancel'): {
 				return $apiRoute->cancel($args[0],200);
+			} case('appointment_uncancel'): {
+				return $apiRoute->uncancel($args[0],200);
 			} case('appointment_customEntity_index'): {
 				return $apiRoute->customEntityIndex($args[0],200);
 			} case('appointment_customEntity_filter'): {

@@ -382,6 +382,26 @@ class AppointmentRoute extends Route {
 
 
 	/**
+	 * uncancel an entity
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function uncancel(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','appointmentId'],$urlParameter);
+		$response=$this->httpClient->request('PUT','/organization/'.$urlParameter['organizationId'].'/appointment/'.$urlParameter['appointmentId'].'/uncancel',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
 	 * customEntity index
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
