@@ -181,15 +181,15 @@ class StaticRoute extends Route {
 
 
 	/**
-	 * get list of organizationTemplateData
+	 * get list of organizationTemplates
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
 	 * @param	integer	$expectedResponseCode: expected http response code for http-client
 	 * @return	array		reponse content
 	 */
-	public function organizationTemplateDataList(array $urlParameter,$expectedResponseCode) {
+	public function organizationTemplateList(array $urlParameter,$expectedResponseCode) {
 		//make request to API
-		$response=$this->httpClient->request('GET','/static/organizationTemplateData/list',[],$expectedResponseCode);
+		$response=$this->httpClient->request('GET','/static/organizationTemplate/list',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}

@@ -183,19 +183,19 @@ class AppConfigRoute extends Route {
 
 
 	/**
-	 * appShow
+	 * appSetting
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
 	 * @param	integer	$expectedResponseCode: expected http response code for http-client
 	 * @return	array		reponse content
 	 */
-	public function appShow(array $urlParameter,$expectedResponseCode) {
+	public function appSetting(array $urlParameter,$expectedResponseCode) {
 		//check submitted parameters
 		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
 
 		//make request to API
 		$this->checkUrlParameters(['organizationId','appId'],$urlParameter);
-		$response=$this->httpClient->request('GET','/app/'.$urlParameter['appId'].'/organization/'.$urlParameter['organizationId'].'/appConfig/show',[],$expectedResponseCode);
+		$response=$this->httpClient->request('GET','/app/'.$urlParameter['appId'].'/organization/'.$urlParameter['organizationId'].'/appConfig/setting',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}

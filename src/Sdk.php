@@ -261,6 +261,9 @@ class Sdk {
 			} case('statistic'): {
 				$apiRoute=new ApiRoute\StatisticRoute($this->httpClient);
 				break(1);
+			} case('statisticAppointment'): {
+				$apiRoute=new ApiRoute\StatisticAppointmentRoute($this->httpClient);
+				break(1);
 			} case('synchronization'): {
 				$apiRoute=new ApiRoute\SynchronizationRoute($this->httpClient);
 				break(1);
@@ -297,8 +300,8 @@ class Sdk {
 				return $apiRoute->edit($args[0],$args[1],200);
 			} case('appConfig_delete'): {
 				return $apiRoute->delete($args[0],200);
-			} case('appConfig_app_show'): {
-				return $apiRoute->appShow($args[0],200);
+			} case('appConfig_app_setting'): {
+				return $apiRoute->appSetting($args[0],200);
 			}
 		}
 
@@ -353,6 +356,8 @@ class Sdk {
 				return $apiRoute->cancel($args[0],200);
 			} case('appointment_uncancel'): {
 				return $apiRoute->uncancel($args[0],200);
+			} case('appointment_addOnlineMeeting'): {
+				return $apiRoute->addOnlineMeeting($args[0],200);
 			} case('appointment_customEntity_index'): {
 				return $apiRoute->customEntityIndex($args[0],200);
 			} case('appointment_customEntity_filter'): {
@@ -373,6 +378,8 @@ class Sdk {
 				return $apiRoute->customerListWeek($args[0],200);
 			} case('appointment_customer_listMonth'): {
 				return $apiRoute->customerListMonth($args[0],200);
+			} case('appointment_customer_list'): {
+				return $apiRoute->customerList($args[0],200);
 			} case('appointment_customer_link'): {
 				return $apiRoute->customerLink($args[0],FALSE,200);
 			} case('appointment_customer_unlink'): {
@@ -586,6 +593,8 @@ class Sdk {
 				return $apiRoute->listWeek($args[0],200);
 			} case('bookingSlot_listMonth'): {
 				return $apiRoute->listMonth($args[0],200);
+			} case('bookingSlot_listRange'): {
+				return $apiRoute->listRange($args[0],200);
 			}
 		}
 
@@ -898,6 +907,10 @@ class Sdk {
 				return $apiRoute->permission($args[0],200);
 			} case('employee_edit'): {
 				return $apiRoute->edit($args[0],$args[1],200);
+			} case('employee_makeAdmin'): {
+				return $apiRoute->makeAdmin($args[0],200);
+			} case('employee_unmakeAdmin'): {
+				return $apiRoute->unmakeAdmin($args[0],200);
 			} case('employee_delete'): {
 				return $apiRoute->delete($args[0],200);
 			} case('employee_availability_listDay'): {
@@ -1383,8 +1396,8 @@ class Sdk {
 				return $apiRoute->sectorList($args[0],200);
 			} case('static_timeZone_list'): {
 				return $apiRoute->timeZoneList($args[0],200);
-			} case('static_organizationTemplateData_list'): {
-				return $apiRoute->organizationTemplateDataList($args[0],200);
+			} case('static_organizationTemplate_list'): {
+				return $apiRoute->organizationTemplateList($args[0],200);
 			} case('static_adminNews_list'): {
 				return $apiRoute->adminNewsList($args[0],200);
 			}
@@ -1406,6 +1419,15 @@ class Sdk {
 				return $apiRoute->indexWeek($args[0],TRUE,200);
 			} case('statistic_indexAllMonth'): {
 				return $apiRoute->indexMonth($args[0],TRUE,200);
+			}
+		}
+
+		//statisticAppointment
+		switch($name) {
+			case('statisticAppointment_listRange'): {
+				return $apiRoute->listRange($args[0],FALSE,200);
+			} case('statisticAppointment_listAllRange'): {
+				return $apiRoute->listRange($args[0],TRUE,200);
 			}
 		}
 

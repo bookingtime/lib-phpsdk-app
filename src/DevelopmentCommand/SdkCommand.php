@@ -76,7 +76,7 @@ class SdkCommand extends Command {
 		// $appConfigArray=$sdk->appConfig_listAll(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs']);
 		// $data=['name'=>'Test App edited2'];
 		// $sdk->appConfig_edit(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','appConfigId'=>'c3DfkPErdv7zgyb0nWn2iwJCPgF4kKMD'],$data);
-		// $sdk->appConfig_app_show(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','appId'=>'70B9EOUxfSN0p866nCa2zGVKma3K3wEy']);
+		// $sdk->appConfig_app_setting(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','appId'=>'70B9EOUxfSN0p866nCa2zGVKma3K3wEy']);
 		// $sdk->appConfig_delete(['organizationId'=>'f6OB6HtSBX1fgo46p4SigKtsiQwZz4Vs','appConfigId'=>'c3DfkPErdv7zgyb0nWn2iwJCPgF4kKMD']);
 
 		#APP
@@ -111,11 +111,13 @@ class SdkCommand extends Command {
 		// $sdk->appointment_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX'],$data);
 		// $sdk->appointment_cancel(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
 		// $sdk->appointment_uncancel(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
+		// $sdk->appointment_addOnlineMeeting(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
 		#$appointment=$sdk->appointment_customEntity_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customEntityType'=>'rentalCar','customEntityId'=>'6TW0kOIdHlZh0EzwtWODyMatn7fU3Aox','year'=>'2024','month'=>'5','day'=>'28']);
 		#$appointment=$sdk->appointment_customEntity_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customEntityType'=>'rentalCar','customEntityId'=>'6TW0kOIdHlZh0EzwtWODyMatn7fU3Aox','year'=>'2024','week'=>'39']);
 		#$appointment=$sdk->appointment_customEntity_listMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customEntityType'=>'rentalCar','customEntityId'=>'6TW0kOIdHlZh0EzwtWODyMatn7fU3Aox','year'=>'2024','month'=>'5']);
 		// $appointmentArray=$sdk->appointment_customer_index(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC','page'=>'1']);
 		// $appointmentArray=$sdk->appointment_customer_filter(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC','searchQuery'=>'test','page'=>'2']);
+		// $appointmentArray=$sdk->appointment_customer_list(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customerId'=>'d3k1qW5uf3pInMnanVLzRABG1H6XOGHC']);
 		// $appointment=$sdk->appointment_customer_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customerId'=>'d3cTwmaQHY6vAZTZFwjcAsrLhuFNiKN8']);
 		#$appointment=$sdk->appointment_customer_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customerId'=>'d3cTwmaQHY6vAZTZFwjcAsrLhuFNiKN8','year'=>'2024','month'=>'5','day'=>'28']);
 		#$appointment=$sdk->appointment_customer_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX','customerId'=>'d3cTwmaQHY6vAZTZFwjcAsrLhuFNiKN8','year'=>'2024','week'=>'39']);
@@ -306,6 +308,7 @@ class SdkCommand extends Command {
 		// $bookingSlotArray=$sdk->bookingSlot_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcrVx2aWQzDnd1MZkEeVbVDt6wuFCJIL','year'=>'2021','month'=>'9','day'=>'30']);
 		// $bookingSlotArray=$sdk->bookingSlot_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcrVx2aWQzDnd1MZkEeVbVDt6wuFCJIL','year'=>'2021','week'=>'39']);
 		// $bookingSlotArray=$sdk->bookingSlot_listMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcrVx2aWQzDnd1MZkEeVbVDt6wuFCJIL','year'=>'2021','month'=>'9']);
+		// $bookingSlotArray=$sdk->bookingSlot_listRange(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcrVx2aWQzDnd1MZkEeVbVDt6wuFCJIL','yearStart'=>'2026','monthStart'=>'10','dayStart'=>'1','yearEnd'=>'2026','monthEnd'=>'10','dayEnd'=>'31']);
 
 		#BOOKINGTEMPLATE
 		// $bookingTemplate=$sdk->bookingTemplate_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcrVx2aWQzDnd1MZkEeVbVDt6wuFCJIL']);
@@ -523,6 +526,8 @@ class SdkCommand extends Command {
 		// $employeeArrayemployee=$sdk->employee_permission(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhbLpHdJczWhtVPC9QMzoQZZd66VBsSq']);
 		// $data=['notes'=>'test edit'];
 		// $employee=$sdk->employee_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhJrjoTXZwwvZ4VI7vUKFvZoWpV0OYr3'],$data);
+		// $employee=$sdk->employee_makeAdmin(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhJrjoTXZwwvZ4VI7vUKFvZoWpV0OYr3']);
+		// $employee=$sdk->employee_unmakeAdmin(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhJrjoTXZwwvZ4VI7vUKFvZoWpV0OYr3']);
 		// $employee=$sdk->employee_employeeGroup_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhbLpHdJczWhtVPC9QMzoQZZd66VBsSq','employeeGroupId'=>'jsOejOwIwUmT59SGrKC770A9GmTs0ej7']);
 		// $employee=$sdk->employee_employeeGroup_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhbLpHdJczWhtVPC9QMzoQZZd66VBsSq','employeeGroupId'=>'jsOejOwIwUmT59SGrKC770A9GmTs0ej7']);
 		#$employee=$sdk->employee_availability_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhJrjoTXZwwvZ4VI7vUKFvZoWpV0OYr3','year'=>'2021','month'=>'1','day'=>'30']);
@@ -1003,7 +1008,7 @@ class SdkCommand extends Command {
 		// $permissionList=$sdk->static_permission_list([]);
 		// $sectorList=$sdk->static_sector_list([]);
 		// $timeZoneList=$sdk->static_timeZone_list([]);
-			#$organizationTemplateDataList=$sdk->static_organizationTemplateData_list([]);
+			#$organizationTemplateList=$sdk->static_organizationTemplate_list([]);
 			#$adminNewsList=$sdk->static_adminNews_list([]);
 
 		// $error=$sdk->static_error_show(['errorCode'=>400]);
@@ -1012,7 +1017,7 @@ class SdkCommand extends Command {
 		// $error=$sdk->static_error_show(['errorCode'=>404]);
 		// $error=$sdk->static_error_show(['errorCode'=>405]);
 		// $error=$sdk->static_error_show(['errorCode'=>500]);
-		#die(BasicLib::debug($organizationTemplateDataList));
+		#die(BasicLib::debug($organizationTemplateList));
 
 		#STATISTIC
 		// $statistic=$sdk->statistic_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','statisticId'=>'fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
@@ -1022,6 +1027,10 @@ class SdkCommand extends Command {
 		// $statisticArray=$sdk->statistic_indexAllWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','week'=>'39','page'=>'1']);
 		// $statisticArray=$sdk->statistic_indexMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','page'=>'1']);
 		// $statisticArray=$sdk->statistic_indexAllMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','year'=>'2021','month'=>'9','page'=>'1']);
+
+		#STATISTICAPPOINTMENT
+		// $statisticAppointmentArray=$sdk->statisticAppointment_listRange(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','yearStart'=>'2026','monthStart'=>'10','dayStart'=>'1','yearEnd'=>'2026','monthEnd'=>'10','dayEnd'=>'31']);
+		// $statisticAppointmentArray=$sdk->statisticAppointment_listAllRange(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','yearStart'=>'2026','monthStart'=>'10','dayStart'=>'1','yearEnd'=>'2026','monthEnd'=>'10','dayEnd'=>'31']);
 
 		#SYNCHRONIZATION
 		// $data=[

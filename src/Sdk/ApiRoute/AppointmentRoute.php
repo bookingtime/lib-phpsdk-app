@@ -402,6 +402,26 @@ class AppointmentRoute extends Route {
 
 
 	/**
+	 * add onlineMeeting to an appointment
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function addOnlineMeeting(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','appointmentId'],$urlParameter);
+		$response=$this->httpClient->request('PUT','/organization/'.$urlParameter['organizationId'].'/appointment/'.$urlParameter['appointmentId'].'/addOnlineMeeting',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
 	 * customEntity index
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
@@ -595,6 +615,26 @@ class AppointmentRoute extends Route {
 		//make request to API
 		$this->checkUrlParameters(['organizationId','customerId','year','month'],$urlParameter);
 		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/appointment/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/listMonth',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * customer list
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function customerList(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','customerId'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/customer/'.$urlParameter['customerId'].'/appointment/list',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}

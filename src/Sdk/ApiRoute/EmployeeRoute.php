@@ -197,6 +197,46 @@ class EmployeeRoute extends Route {
 
 
 	/**
+	 * make an employee admin
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function makeAdmin(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','employeeId'],$urlParameter);
+		$response=$this->httpClient->request('PUT','/organization/'.$urlParameter['organizationId'].'/employee/'.$urlParameter['employeeId'].'/makeAdmin',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
+	 * revoke the admin rights of an employee
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function unmakeAdmin(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','employeeId'],$urlParameter);
+		$response=$this->httpClient->request('PUT','/organization/'.$urlParameter['organizationId'].'/employee/'.$urlParameter['employeeId'].'/unmakeAdmin',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
 	 * delete an entity
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
