@@ -797,10 +797,6 @@ class SdkTest extends TestCase {
 		$data=['notes'=>'test edit'];
 		$employee=$sdk->employee_edit(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','employeeId'=>'Ehxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
 		$this->assertEquals($employee['mock-content'],1);
-		$employee=$sdk->employee_makeAdmin(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','employeeId'=>'Ehxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($employee['mock-content'],1);
-		$employee=$sdk->employee_unmakeAdmin(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','employeeId'=>'Ehxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
-		$this->assertEquals($employee['mock-content'],1);
 		$employeeArray=$sdk->employee_customEntity_index(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','page'=>'1']);
 		$this->assertEquals($employeeArray['mock-content'],1);
 		$employeeArray=$sdk->employee_customEntity_filter(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityId'=>'6Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customEntityType'=>'rentalCar','searchQuery'=>'test','page'=>'2']);
@@ -1482,6 +1478,8 @@ class SdkTest extends TestCase {
 		$this->assertEquals($organizationTemplateList['mock-content'],1);
 		$adminNewsList=$sdk->static_adminNews_list([]);
 		$this->assertEquals($adminNewsList['mock-content'],1);
+		$holidayTemplateList=$sdk->static_holidayTemplate_list([]);
+		$this->assertEquals($holidayTemplateList['mock-content'],1);
 
 		#STATISTIC
 		$statistic=$sdk->statistic_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','statisticId'=>'fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);

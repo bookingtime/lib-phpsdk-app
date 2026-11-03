@@ -526,8 +526,6 @@ class SdkCommand extends Command {
 		// $employeeArrayemployee=$sdk->employee_permission(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhbLpHdJczWhtVPC9QMzoQZZd66VBsSq']);
 		// $data=['notes'=>'test edit'];
 		// $employee=$sdk->employee_edit(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhJrjoTXZwwvZ4VI7vUKFvZoWpV0OYr3'],$data);
-		// $employee=$sdk->employee_makeAdmin(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhJrjoTXZwwvZ4VI7vUKFvZoWpV0OYr3']);
-		// $employee=$sdk->employee_unmakeAdmin(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhJrjoTXZwwvZ4VI7vUKFvZoWpV0OYr3']);
 		// $employee=$sdk->employee_employeeGroup_link(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhbLpHdJczWhtVPC9QMzoQZZd66VBsSq','employeeGroupId'=>'jsOejOwIwUmT59SGrKC770A9GmTs0ej7']);
 		// $employee=$sdk->employee_employeeGroup_unlink(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhbLpHdJczWhtVPC9QMzoQZZd66VBsSq','employeeGroupId'=>'jsOejOwIwUmT59SGrKC770A9GmTs0ej7']);
 		#$employee=$sdk->employee_availability_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','employeeId'=>'EhJrjoTXZwwvZ4VI7vUKFvZoWpV0OYr3','year'=>'2021','month'=>'1','day'=>'30']);
@@ -1010,6 +1008,7 @@ class SdkCommand extends Command {
 		// $timeZoneList=$sdk->static_timeZone_list([]);
 			#$organizationTemplateList=$sdk->static_organizationTemplate_list([]);
 			#$adminNewsList=$sdk->static_adminNews_list([]);
+			#$holidayTemplateList=$sdk->static_holidayTemplate_list([]);
 
 		// $error=$sdk->static_error_show(['errorCode'=>400]);
 		// $error=$sdk->static_error_show(['errorCode'=>401]);

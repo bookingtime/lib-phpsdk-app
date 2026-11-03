@@ -907,10 +907,6 @@ class Sdk {
 				return $apiRoute->permission($args[0],200);
 			} case('employee_edit'): {
 				return $apiRoute->edit($args[0],$args[1],200);
-			} case('employee_makeAdmin'): {
-				return $apiRoute->makeAdmin($args[0],200);
-			} case('employee_unmakeAdmin'): {
-				return $apiRoute->unmakeAdmin($args[0],200);
 			} case('employee_delete'): {
 				return $apiRoute->delete($args[0],200);
 			} case('employee_availability_listDay'): {
@@ -1400,6 +1396,8 @@ class Sdk {
 				return $apiRoute->organizationTemplateList($args[0],200);
 			} case('static_adminNews_list'): {
 				return $apiRoute->adminNewsList($args[0],200);
+			} case('static_holidayTemplate_list'): {
+				return $apiRoute->holidayTemplateList($args[0],200);
 			}
 		}
 
