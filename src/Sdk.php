@@ -174,6 +174,9 @@ class Sdk {
 			} case('availabilityException'): {
 				$apiRoute=new ApiRoute\AvailabilityExceptionRoute($this->httpClient);
 				break(1);
+			} case('bookingCategory'): {
+				$apiRoute=new ApiRoute\BookingCategoryRoute($this->httpClient);
+				break(1);
 			} case('bookingResource'): {
 				$apiRoute=new ApiRoute\BookingResourceRoute($this->httpClient);
 				break(1);
